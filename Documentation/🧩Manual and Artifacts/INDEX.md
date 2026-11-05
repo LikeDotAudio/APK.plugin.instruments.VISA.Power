@@ -9,5 +9,6 @@ How to use it and how it is built.
 |---|---|
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Architecture — INSTRUMENT.Power |
 | [SDK.md](SDK.md) | SDK — INSTRUMENT.Power |
+| [SMOKE.md](SMOKE.md) | Smoke test — INSTRUMENT.Power |
 | [SDK/](SDK/) | folder |
 <!-- /wiki:index -->
