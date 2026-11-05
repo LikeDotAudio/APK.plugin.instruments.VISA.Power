@@ -1646,7 +1646,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR2"
+          "type": "ERROR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Read_Error",
@@ -4961,7 +4961,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR2"
+          "type": "ERROR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Read_Error",
