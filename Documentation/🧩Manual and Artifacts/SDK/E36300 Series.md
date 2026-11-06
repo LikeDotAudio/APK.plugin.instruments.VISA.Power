@@ -14,7 +14,24 @@
 <!-- sdk:io -->
 ## Inputs and outputs — the box
 
-No part for this model in the BIM library yet (`DATABASE.server.BIM`), so its connectors are not stated here. Add the part there — the one place a device type is described — and regenerate.
+From the BIM part [`keysight/e36300-series`](/api/bim/parts?full=1&id=keysight/e36300-series) — E36300 Series User's Guide 9018-04576 (front and rear panel at a glance) and data sheet 5992-2124EN (ratings, size) — the panel common to the series, declared, not measured. E36312A and E36313A add a front USB-A host, rear 4-wire output terminal blocks, a 4-pin digital I/O, LAN and an optional GPIB module; the E36311A rear is USB and mains only. Depth 364 mm (E36311A) or 367 mm; weight 8.1 / 8.3 / 9.8 kg.
+
+### Outputs
+
+| Terminal | Connector | Domain | Count | Signal |
+|---|---|---|---:|---|
+| OUTPUT 1 +/− | binding post | power | 2 | front: output 1, 0–6 V |
+| OUTPUT 2 | binding post | power | 1 | front: output 2, 25 V (E36311A: +25 V, sharing COM with output 3) |
+| OUTPUT 3 | binding post | power | 1 | front: output 3, 25 V (E36311A: −25 V, sharing COM with output 2) |
+
+### Connections (control and network)
+
+| Terminal | Connector | Domain | Count | Signal |
+|---|---|---|---:|---|
+| Earth ground | binding post | power | 1 | front: chassis / earth ground reference |
+| USB | USB | control | 1 | rear: USB 2.0 remote control (SCPI) |
+
+**Power:** AC inlet (AC inlet)
 
 <!-- /sdk:io -->
 
