@@ -162,20 +162,30 @@
       "notes": "`OUTP?` answers 1 or 0, so the panel's toggle is keyed 1/0 and sends what it reads back. Verified on the 66101A at gpib7,30,0, 2026-08-08."
     },
     "Set_Output_Dfi_Link": {
-      "scpi": "OUTP:DFI:LINK <value>",
+      "scpi": "OUTP:DFI:LINK \"<value>\"",
       "description": "This command specifies which events within the power module are linked to DFI source events",
       "arg": {
-        "kind": "bool",
+        "kind": "enum",
         "values": [
           "OFF",
-          "ON"
-        ]
+          "CC",
+          "CV",
+          "ESB",
+          "OPC",
+          "OPER",
+          "QUES",
+          "MAV",
+          "RQS",
+          "SUM3"
+        ],
+        "default": "SUM3"
       },
       "args": [
         "value"
       ],
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data, sent quoted: `OUTP:DFI:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 40, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Output_Dfi_Source": {
       "scpi": "OUTP:DFI:SOUR <value>",
@@ -226,13 +236,18 @@
       "scpi": "OUTP:REL <value>",
       "description": "Output Subsystem",
       "arg": {
-        "kind": "unknown"
+        "kind": "bool",
+        "values": [
+          "OFF",
+          "ON"
+        ]
       },
       "args": [
         "value"
       ],
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Output_Relay_Polarity": {
       "scpi": "OUTP:REL:POL <value>",
@@ -249,7 +264,8 @@
         "value"
       ],
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Output_Relay_Status": {
       "scpi": "OUTP:REL:STAT <value>",
@@ -265,7 +281,8 @@
         "value"
       ],
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Output_Status": {
       "scpi": "OUTP:STAT <value>",
@@ -284,20 +301,35 @@
       "unverified": true
     },
     "Set_Output_Ttltrg_Link": {
-      "scpi": "OUTP:TTLT:LINK <value>",
+      "scpi": "OUTP:TTLT:LINK \"<value>\"",
       "description": "Set output ttltrg link",
       "arg": {
-        "kind": "bool",
+        "kind": "enum",
         "values": [
           "OFF",
-          "ON"
-        ]
+          "CC",
+          "CV",
+          "ESB",
+          "LSC",
+          "OPC",
+          "OPER",
+          "QUES",
+          "MAV",
+          "RQS",
+          "RTG",
+          "STC",
+          "STS",
+          "SUM3",
+          "TDC"
+        ],
+        "default": "OFF"
       },
       "args": [
         "value"
       ],
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data, sent quoted: `OUTP:TTLT:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 42, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Output_Ttltrg_Source": {
       "scpi": "OUTP:TTLT:SOUR <value>",
@@ -605,20 +637,35 @@
       "unverified": true
     },
     "Set_Trigger_Link": {
-      "scpi": "TRIG:LINK <value>",
+      "scpi": "TRIG:LINK \"<value>\"",
       "description": "Set trigger link",
       "arg": {
-        "kind": "bool",
+        "kind": "enum",
         "values": [
           "OFF",
-          "ON"
-        ]
+          "CC",
+          "CV",
+          "ESB",
+          "LSC",
+          "OPC",
+          "OPER",
+          "QUES",
+          "MAV",
+          "RQS",
+          "RTG",
+          "STC",
+          "STS",
+          "SUM3",
+          "TDC"
+        ],
+        "default": "OFF"
       },
       "args": [
         "value"
       ],
       "subsystem": "TRIG",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data, sent quoted: `TRIG:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 47, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Trigger_Source": {
       "scpi": "TRIG:SOUR <value>",
@@ -641,20 +688,35 @@
       "unverified": true
     },
     "Set_Trigger_Start_Link": {
-      "scpi": "TRIG:STAR:LINK <value>",
+      "scpi": "TRIG:STAR:LINK \"<value>\"",
       "description": "This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
       "arg": {
-        "kind": "bool",
+        "kind": "enum",
         "values": [
           "OFF",
-          "ON"
-        ]
+          "CC",
+          "CV",
+          "ESB",
+          "LSC",
+          "OPC",
+          "OPER",
+          "QUES",
+          "MAV",
+          "RQS",
+          "RTG",
+          "STC",
+          "STS",
+          "SUM3",
+          "TDC"
+        ],
+        "default": "OFF"
       },
       "args": [
         "value"
       ],
       "subsystem": "TRIG",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data, sent quoted: `TRIG:STAR:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 47, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Set_Trigger_Start_Delay": {
       "scpi": "TRIGger:STARt:DELay <value>",
@@ -997,7 +1059,9 @@
       "scpi": "OUTP:DFI",
       "description": "Do output dfi",
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 39: OUTPut:DFI[:STATe] takes a <bool>; bare OUTP:DFI is a missing parameter — it is Set_Output_Dfi_Status"
     },
     "Do_Output_Protection": {
       "scpi": "OUTP:PROT",
@@ -1125,7 +1189,9 @@
       "scpi": "TTLT:LINK",
       "description": "Do ttltrg link",
       "subsystem": "TTLT",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) ch. 3: there is no TTLT root node — the link is OUTPut:TTLTrg:LINK <CRD> (Set_Output_Ttltrg_Link)"
     },
     "Do_Voltage_Immediate": {
       "scpi": "VOLT:IMM",
@@ -1417,27 +1483,30 @@
         "type": "BOOL"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Relay": {
       "scpi": "OUTP:REL?",
       "description": "Output Subsystem",
       "returns": {
         "count": 1,
-        "type": "NR1"
+        "type": "BOOL"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "OUTPut:RELay[:STATe]? answers 0|1. Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Ttltrg_Link": {
       "scpi": "OUTP:TTLT:LINK?",
       "description": "Get output ttltrg link",
       "returns": {
         "count": 1,
-        "type": "BOOL"
+        "type": "STR"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data from Table 3-1, quoted: answers \"OFF\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 42; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Ttltrg_Source": {
       "scpi": "OUTP:TTLT:SOUR?",
@@ -1465,10 +1534,11 @@
       "description": "This command specifies which events within the power module are linked to DFI source events",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "STR"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data from Table 3-1, quoted: answers \"SUM3\", the *RST value (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 40; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Dfi_Source": {
       "scpi": "OUTPut:DFI:SOUR?",
@@ -1476,10 +1546,11 @@
       "description": "This command selects the source for DFI events",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "CRD"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "The only source is LINK; answers LINK (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 40; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Dfi_Status": {
       "scpi": "OUTPut:DFI:STATe?",
@@ -1487,10 +1558,11 @@
       "description": "This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Answers 0|1 (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 39; answered 0 on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Protection_Delay": {
       "scpi": "OUTPut:PROTection:DELay?",
@@ -1510,10 +1582,11 @@
       "description": "This command is valid only if the power module is configured for the optional relay connector",
       "returns": {
         "count": 1,
-        "type": "NR1"
+        "type": "CRD"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Answers NORM|REV. Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Output_Status": {
       "scpi": "OUTPut:STATe?",
@@ -1879,10 +1952,11 @@
       "description": "Get trigger link",
       "returns": {
         "count": 1,
-        "type": "BOOL"
+        "type": "STR"
       },
       "subsystem": "TRIG",
-      "unverified": true
+      "unverified": true,
+      "notes": "TRIG[:STAR]:LINK? — string data from Table 3-1, quoted: answers \"OFF\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 47; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Trigger_Source": {
       "scpi": "TRIG:SOUR?",
@@ -1912,10 +1986,11 @@
       "description": "This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
       "returns": {
         "count": 1,
-        "type": "CRD"
+        "type": "STR"
       },
       "subsystem": "TRIG",
-      "unverified": true
+      "unverified": true,
+      "notes": "String data from Table 3-1, quoted: answers \"OFF\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 47; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
     "Get_Trigger_Start_Source": {
       "scpi": "TRIGger:STARt:SOURce?",

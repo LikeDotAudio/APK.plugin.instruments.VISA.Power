@@ -29,3 +29,27 @@ The manual shows these commands do not exist. Each entry stays in the table with
 - `set/Set_Status_Operation` — HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) pp. 43-44: STATus:OPERation[:EVENt]? is query-only; only :ENABle/:NTR/:PTR take a value — there is no settable STAT:OPER
 - `set/Set_Voltage_Alc_Source` — HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 49: VOLT:SENS:SOUR? (alias VOLT:ALC:SOUR?) reads the rear sense switch; query-only, no set form
 - `set/Set_Voltage_Sense_Source` — HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 49: [SOURce]:VOLTage:SENSe:SOURce? is query-only, no set form
+
+## Link, DFI and relay rows — GUI certificate on the 66102A Dev730-1 (2026-11-06)
+
+The certificate failed `Get_Output_Ttltrg_Link` ("SDK says BOOL, the unit answered "OFF"") and `Get_Output_Dfi_Link` ("SDK says NR3, the unit answered "SUM3""). The same manual (5959-3362) and the unit at gpib7,30,1 agree on these rows:
+
+| Command | Change | Manual · unit |
+|---|---|---|
+| `nab/Get_Output_Ttltrg_Link` | returns `STR` (was BOOL) | OUTP:TTLT:LINK, p. 42, Table 3-1 · answers `"OFF"` |
+| `nab/Get_Output_Dfi_Link` | returns `STR` (was NR3) | OUTP:DFI:LINK, p. 40, Table 3-1 · answers `"SUM3"` |
+| `nab/Get_Trigger_Link`, `nab/Get_Trigger_Start_Link` | returns `STR` (was BOOL / CRD) | TRIG[:STAR]:LINK, p. 47 · answers `"OFF"` |
+| `nab/Get_Output_Dfi_Source` | returns `CRD` (was NR3) | OUTP:DFI:SOUR, p. 40 · answers `LINK` |
+| `nab/Get_Output_Dfi_Status` | returns `BOOL` (was NR3) | OUTP:DFI[:STAT], p. 39 · answers `0` |
+| `nab/Get_Output_Relay` | returns `BOOL` (was NR1) | OUTP:REL[:STAT]?, p. 41 · `-241 "Hardware missing"` (no relay option) |
+| `nab/Get_Output_Relay_Polarity` | returns `CRD` (was NR1) | OUTP:REL:POL?, p. 41 — NORM \| REV |
+| `set/Set_Output_Ttltrg_Link`, `set/Set_Trigger_Link`, `set/Set_Trigger_Start_Link` | `… "<value>"`, enum of Table 3-1's 15 (was bool OFF/ON), default OFF | string data: `OUTP:TTLT:LINK OFF` is `-148 "Character data not allowed"`, `"OFF"` is taken |
+| `set/Set_Output_Dfi_Link` | `OUTP:DFI:LINK "<value>"`, enum of the 10 marked valid for DFI, default SUM3 | p. 40, Table 3-1, *RST SUM3 |
+| `set/Set_Output_Relay` | arg `bool` OFF/ON (was unknown) | OUTP:REL[:STAT] <bool>, p. 41 |
+
+The relay rows are valid only with the optional relay connector; a module without it answers `-241 "Hardware missing"` — the unit's fact, not the table's (noted on each row).
+
+### Retired (2026-11-06)
+
+- `do/Do_Ttltrg_Link` — `TTLT:LINK`: there is no TTLT root node; the link is OUTPut:TTLTrg:LINK (Set_Output_Ttltrg_Link)
+- `do/Do_Output_Dfi` — bare `OUTP:DFI`: OUTPut:DFI[:STATe] takes a <bool> (p. 39); it is Set_Output_Dfi_Status

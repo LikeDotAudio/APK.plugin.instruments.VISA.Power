@@ -73,12 +73,12 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 188,
+    "total_commands": 186,
     "get_count": 70,
     "set_count": 49,
     "nab_count": 72,
     "rig_count": 2,
-    "do_count": 65
+    "do_count": 63
   },
   "endpoints": {
     "get": {
@@ -569,7 +569,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Relay",
@@ -595,7 +595,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "BOOL"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Ttltrg_Link",
@@ -674,7 +674,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Dfi_Link",
@@ -701,7 +701,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Dfi_Source",
@@ -728,7 +728,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Dfi_Status",
@@ -783,7 +783,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Relay_Polarity",
@@ -1712,7 +1712,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "BOOL"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Trigger_Link",
@@ -1793,7 +1793,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "CRD"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Trigger_Start_Link",
@@ -2247,18 +2247,27 @@
         "command": "Set_Output_Dfi_Link",
         "verb": "set",
         "description": "This command specifies which events within the power module are linked to DFI source events",
-        "scpi": "OUTP:DFI:LINK <value>",
+        "scpi": "OUTP:DFI:LINK \"<value>\"",
         "subsystem": "OUTP",
         "group": "OUTP",
         "args": [
           "value"
         ],
         "arg": {
-          "kind": "bool",
+          "kind": "enum",
           "values": [
             "OFF",
-            "ON"
-          ]
+            "CC",
+            "CV",
+            "ESB",
+            "OPC",
+            "OPER",
+            "QUES",
+            "MAV",
+            "RQS",
+            "SUM3"
+          ],
+          "default": "SUM3"
         },
         "returns": null,
         "mqtt": {
@@ -2367,7 +2376,11 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "bool",
+          "values": [
+            "OFF",
+            "ON"
+          ]
         },
         "returns": null,
         "mqtt": {
@@ -2473,18 +2486,32 @@
         "command": "Set_Output_Ttltrg_Link",
         "verb": "set",
         "description": "Set output ttltrg link",
-        "scpi": "OUTP:TTLT:LINK <value>",
+        "scpi": "OUTP:TTLT:LINK \"<value>\"",
         "subsystem": "OUTP",
         "group": "OUTP",
         "args": [
           "value"
         ],
         "arg": {
-          "kind": "bool",
+          "kind": "enum",
           "values": [
             "OFF",
-            "ON"
-          ]
+            "CC",
+            "CV",
+            "ESB",
+            "LSC",
+            "OPC",
+            "OPER",
+            "QUES",
+            "MAV",
+            "RQS",
+            "RTG",
+            "STC",
+            "STS",
+            "SUM3",
+            "TDC"
+          ],
+          "default": "OFF"
         },
         "returns": null,
         "mqtt": {
@@ -3066,18 +3093,32 @@
         "command": "Set_Trigger_Link",
         "verb": "set",
         "description": "Set trigger link",
-        "scpi": "TRIG:LINK <value>",
+        "scpi": "TRIG:LINK \"<value>\"",
         "subsystem": "TRIG",
         "group": "TRIG",
         "args": [
           "value"
         ],
         "arg": {
-          "kind": "bool",
+          "kind": "enum",
           "values": [
             "OFF",
-            "ON"
-          ]
+            "CC",
+            "CV",
+            "ESB",
+            "LSC",
+            "OPC",
+            "OPER",
+            "QUES",
+            "MAV",
+            "RQS",
+            "RTG",
+            "STC",
+            "STS",
+            "SUM3",
+            "TDC"
+          ],
+          "default": "OFF"
         },
         "returns": null,
         "mqtt": {
@@ -3128,18 +3169,32 @@
         "command": "Set_Trigger_Start_Link",
         "verb": "set",
         "description": "This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
-        "scpi": "TRIG:STAR:LINK <value>",
+        "scpi": "TRIG:STAR:LINK \"<value>\"",
         "subsystem": "TRIG",
         "group": "TRIG",
         "args": [
           "value"
         ],
         "arg": {
-          "kind": "bool",
+          "kind": "enum",
           "values": [
             "OFF",
-            "ON"
-          ]
+            "CC",
+            "CV",
+            "ESB",
+            "LSC",
+            "OPC",
+            "OPER",
+            "QUES",
+            "MAV",
+            "RQS",
+            "RTG",
+            "STC",
+            "STS",
+            "SUM3",
+            "TDC"
+          ],
+          "default": "OFF"
         },
         "returns": null,
         "mqtt": {
@@ -3821,7 +3876,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Relay",
@@ -3847,7 +3902,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "BOOL"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Ttltrg_Link",
@@ -3926,7 +3981,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Dfi_Link",
@@ -3953,7 +4008,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Dfi_Source",
@@ -3980,7 +4035,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Dfi_Status",
@@ -4035,7 +4090,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Relay_Polarity",
@@ -4964,7 +5019,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "BOOL"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Trigger_Link",
@@ -5045,7 +5100,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "CRD"
+          "type": "STR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Trigger_Start_Link",
@@ -6087,27 +6142,6 @@
         },
         "unverified": false
       },
-      "Do_Output_Dfi": {
-        "command": "Do_Output_Dfi",
-        "verb": "do",
-        "description": "Do output dfi",
-        "scpi": "OUTP:DFI",
-        "subsystem": "OUTP",
-        "group": "OUTP",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Do_Output_Dfi",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Output_Dfi"
-          }
-        },
-        "unverified": true
-      },
       "Do_Output_Protection": {
         "command": "Do_Output_Protection",
         "verb": "do",
@@ -6494,27 +6528,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Do_Trigger_Start_Immediate"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Ttltrg_Link": {
-        "command": "Do_Ttltrg_Link",
-        "verb": "do",
-        "description": "Do ttltrg link",
-        "scpi": "TTLT:LINK",
-        "subsystem": "TTLT",
-        "group": "TTLT",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Do_Ttltrg_Link",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Ttltrg_Link"
           }
         },
         "unverified": true
