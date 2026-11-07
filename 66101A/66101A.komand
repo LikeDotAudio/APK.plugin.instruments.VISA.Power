@@ -981,7 +981,9 @@
       "scpiFast": ":IMM:AMPL",
       "description": "This command directly programs the immediate current level of the power module",
       "subsystem": "IMM",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) pp. 35, 48: the manual writes [SOURce]:CURRent[:LEVel] [:IMMediate][:AMPLitude] and [SOURce]:VOLTage[:LEVel] [:IMMediate][:AMPlitude] with a space before [:IMMediate]; the scraper split there, so `:IMMediate:AMPlitude` alone is a fragment with no root — the real commands are CURR/VOLT (SOUR:CURR:LEV:IMM:AMPL, SOUR:VOLT:LEV:IMM:AMPL)"
     },
     "Do_Initiate_Immediate": {
       "scpi": "INIT:IMM",
@@ -1407,7 +1409,9 @@
         "count": 1
       },
       "subsystem": "IMM",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) pp. 35, 48: the manual writes [SOURce]:CURRent[:LEVel] [:IMMediate][:AMPLitude] and [SOURce]:VOLTage[:LEVel] [:IMMediate][:AMPlitude] with a space before [:IMMediate]; the scraper split there, so `:IMMediate:AMPlitude` alone is a fragment with no root — the real commands are CURR/VOLT (SOUR:CURR:LEV:IMM:AMPL, SOUR:VOLT:LEV:IMM:AMPL)"
     },
     "Get_Initiate_Continuous": {
       "scpi": "INITiate:CONTinuous?",

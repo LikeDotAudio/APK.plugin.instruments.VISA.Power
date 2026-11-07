@@ -85,12 +85,12 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 186,
-    "get_count": 70,
+    "total_commands": 184,
+    "get_count": 69,
     "set_count": 49,
-    "nab_count": 72,
+    "nab_count": 71,
     "rig_count": 2,
-    "do_count": 63
+    "do_count": 62
   },
   "endpoints": {
     "get": {
@@ -405,32 +405,6 @@
             "command": "Get_Display_Window_Status"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Display_Window_Status",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Immediate_Amplitude": {
-        "command": "Get_Immediate_Amplitude",
-        "verb": "get",
-        "description": "RST Value Table 3-2",
-        "scpi": ":IMMediate:AMPlitude?",
-        "scpi_fast": ":IMM:AMP?",
-        "subsystem": "IMM",
-        "group": "IMM",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Immediate_Amplitude",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Immediate_Amplitude"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Immediate_Amplitude",
           "reading_direction": "out"
         },
         "unverified": true
@@ -3678,32 +3652,6 @@
         },
         "unverified": true
       },
-      "Get_Immediate_Amplitude": {
-        "command": "Get_Immediate_Amplitude",
-        "verb": "nab",
-        "description": "RST Value Table 3-2",
-        "scpi": ":IMMediate:AMPlitude?",
-        "scpi_fast": ":IMM:AMP?",
-        "subsystem": "IMM",
-        "group": "IMM",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Immediate_Amplitude",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Immediate_Amplitude"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Immediate_Amplitude",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Initiate_Continuous": {
         "command": "Get_Initiate_Continuous",
         "verb": "nab",
@@ -5897,28 +5845,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Do_Display_Status"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Immediate_Amplitude": {
-        "command": "Do_Immediate_Amplitude",
-        "verb": "do",
-        "description": "This command directly programs the immediate current level of the power module",
-        "scpi": ":IMMediate:AMPLitude",
-        "scpi_fast": ":IMM:AMPL",
-        "subsystem": "IMM",
-        "group": "IMM",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Do_Immediate_Amplitude",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Immediate_Amplitude"
           }
         },
         "unverified": true
