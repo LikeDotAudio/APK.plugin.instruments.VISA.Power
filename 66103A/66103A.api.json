@@ -85,10 +85,10 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 186,
-    "get_count": 69,
+    "total_commands": 181,
+    "get_count": 64,
     "set_count": 48,
-    "nab_count": 72,
+    "nab_count": 67,
     "rig_count": 4,
     "do_count": 62
   },
@@ -809,32 +809,6 @@
         },
         "unverified": true
       },
-      "Get_Questionable_Event": {
-        "command": "Get_Questionable_Event",
-        "verb": "get",
-        "description": "Get questionable event",
-        "scpi": "QUES:EVEN?",
-        "subsystem": "QUES",
-        "group": "QUES",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Questionable_Event",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Questionable_Event"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Questionable_Event",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Source_Current_Level_Immediate_Amplitude": {
         "command": "Get_Source_Current_Level_Immediate_Amplitude",
         "verb": "get",
@@ -915,31 +889,6 @@
         },
         "unverified": true
       },
-      "Get_Source_List_Dwel": {
-        "command": "Get_Source_List_Dwel",
-        "verb": "get",
-        "description": "- If LIST:STEP ONCE has been programmed, the output remains at the present level until a trigger sequences the next point in the list",
-        "scpi": "SOUR:LIST:DWEL?",
-        "subsystem": "SOUR",
-        "group": "SOUR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Dwel",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Source_List_Dwel"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_List_Dwel",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Source_List_Step": {
         "command": "Get_Source_List_Step",
         "verb": "get",
@@ -953,7 +902,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Step",
@@ -1020,33 +969,6 @@
         },
         "unverified": true
       },
-      "Get_Source_Voltage_Sense": {
-        "command": "Get_Source_Voltage_Sense",
-        "verb": "get",
-        "description": "Get source voltage sense",
-        "scpi": "SOUR:VOLT:SENS?",
-        "subsystem": "SOUR",
-        "group": "SOUR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "V"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Source_Voltage_Sense",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Source_Voltage_Sense"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_Voltage_Sense",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Source_Current_Mode": {
         "command": "Get_Source_Current_Mode",
         "verb": "get",
@@ -1061,7 +983,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Mode",
@@ -1151,33 +1073,6 @@
             "command": "Get_Source_List_Current_Points"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_List_Current_Points",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Source_List_Dwfl_Points": {
-        "command": "Get_Source_List_Dwfl_Points",
-        "verb": "get",
-        "description": "This query returns the number of points specified in LIST:DWEL",
-        "scpi": "SOURce:LIST:DWFL1:POINts?",
-        "scpi_fast": "SOUR:LIST:DWFL1:POIN?",
-        "subsystem": "SOUR",
-        "group": "SOUR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Dwfl_Points",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Source_List_Dwfl_Points"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_List_Dwfl_Points",
           "reading_direction": "out"
         },
         "unverified": true
@@ -1576,33 +1471,6 @@
             "command": "Get_Status_Questionable_Ntransition"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Status_Questionable_Ntransition",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Status_Questionable_Ptransition": {
-        "command": "Get_Status_Questionable_Ptransition",
-        "verb": "get",
-        "description": "Register Commands",
-        "scpi": "STATus:QUEStionable:PTRansitiion?",
-        "scpi_fast": "STAT:QUES:PTR?",
-        "subsystem": "STAT",
-        "group": "STAT",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Status_Questionable_Ptransition",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Status_Questionable_Ptransition"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Status_Questionable_Ptransition",
           "reading_direction": "out"
         },
         "unverified": true
@@ -4101,32 +3969,6 @@
         },
         "unverified": true
       },
-      "Get_Questionable_Event": {
-        "command": "Get_Questionable_Event",
-        "verb": "nab",
-        "description": "Get questionable event",
-        "scpi": "QUES:EVEN?",
-        "subsystem": "QUES",
-        "group": "QUES",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Questionable_Event",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Questionable_Event"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Questionable_Event",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Source_Current_Level_Immediate_Amplitude": {
         "command": "Get_Source_Current_Level_Immediate_Amplitude",
         "verb": "nab",
@@ -4207,31 +4049,6 @@
         },
         "unverified": true
       },
-      "Get_Source_List_Dwel": {
-        "command": "Get_Source_List_Dwel",
-        "verb": "nab",
-        "description": "- If LIST:STEP ONCE has been programmed, the output remains at the present level until a trigger sequences the next point in the list",
-        "scpi": "SOUR:LIST:DWEL?",
-        "subsystem": "SOUR",
-        "group": "SOUR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Dwel",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Source_List_Dwel"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_List_Dwel",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Source_List_Step": {
         "command": "Get_Source_List_Step",
         "verb": "nab",
@@ -4245,7 +4062,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Step",
@@ -4312,33 +4129,6 @@
         },
         "unverified": true
       },
-      "Get_Source_Voltage_Sense": {
-        "command": "Get_Source_Voltage_Sense",
-        "verb": "nab",
-        "description": "Get source voltage sense",
-        "scpi": "SOUR:VOLT:SENS?",
-        "subsystem": "SOUR",
-        "group": "SOUR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "V"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Source_Voltage_Sense",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Source_Voltage_Sense"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_Voltage_Sense",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Source_Current_Mode": {
         "command": "Get_Source_Current_Mode",
         "verb": "nab",
@@ -4353,7 +4143,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "CRD"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Mode",
@@ -4443,33 +4233,6 @@
             "command": "Get_Source_List_Current_Points"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_List_Current_Points",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Source_List_Dwfl_Points": {
-        "command": "Get_Source_List_Dwfl_Points",
-        "verb": "nab",
-        "description": "This query returns the number of points specified in LIST:DWEL",
-        "scpi": "SOURce:LIST:DWFL1:POINts?",
-        "scpi_fast": "SOUR:LIST:DWFL1:POIN?",
-        "subsystem": "SOUR",
-        "group": "SOUR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Dwfl_Points",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Source_List_Dwfl_Points"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Source_List_Dwfl_Points",
           "reading_direction": "out"
         },
         "unverified": true
@@ -4868,33 +4631,6 @@
             "command": "Get_Status_Questionable_Ntransition"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Status_Questionable_Ntransition",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Status_Questionable_Ptransition": {
-        "command": "Get_Status_Questionable_Ptransition",
-        "verb": "nab",
-        "description": "Register Commands",
-        "scpi": "STATus:QUEStionable:PTRansitiion?",
-        "scpi_fast": "STAT:QUES:PTR?",
-        "subsystem": "STAT",
-        "group": "STAT",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Get_Status_Questionable_Ptransition",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Status_Questionable_Ptransition"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Status_Questionable_Ptransition",
           "reading_direction": "out"
         },
         "unverified": true

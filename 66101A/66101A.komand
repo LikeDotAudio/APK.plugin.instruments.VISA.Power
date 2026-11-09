@@ -1611,7 +1611,9 @@
         "type": "NR1"
       },
       "subsystem": "QUES",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "QUES:EVEN? answers -113 Undefined header on the 66104A (bench 2026-11-07): a scrape fragment of STAT:QUES:EVEN?, which is Get_Status_Questionable_Event"
     },
     "Get_Source_Current_Level_Immediate_Amplitude": {
       "scpi": "SOUR:CURR:LEV:IMM:AMPL?",
@@ -1652,14 +1654,16 @@
         "count": 1
       },
       "subsystem": "SOUR",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "SOUR:LIST:DWEL? and LIST:DWEL? answer -113 Undefined header on the 66103A (bench 2026-11-09); LIST:DWEL:POIN? is the query that answers"
     },
     "Get_Source_List_Step": {
       "scpi": "SOUR:LIST:STEP?",
       "description": "In either mode, triggers that occur during a dwell interval are ignored",
       "returns": {
         "count": 1,
-        "type": "NR1"
+        "type": "CRD"
       },
       "subsystem": "SOUR",
       "unverified": true
@@ -1695,7 +1699,9 @@
         "unit": "V"
       },
       "subsystem": "SOUR",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "SOUR:VOLT:SENS? answers -113 Undefined header on the 66103A (bench 2026-11-09): a fragment of VOLT:SENS:SOUR?, which answers INT"
     },
     "Get_Source_Current_Mode": {
       "scpi": "SOURce:CURRent:MODE?",
@@ -1703,7 +1709,7 @@
       "description": "LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "CRD"
       },
       "subsystem": "SOUR",
       "unverified": true
@@ -1750,7 +1756,9 @@
         "type": "NR1"
       },
       "subsystem": "SOUR",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "A scrape misreading of DWEL: SOUR:LIST:DWFL1:POIN? answers -113 on the 66103A (bench 2026-11-09); LIST:DWEL:POIN? is the real query"
     },
     "Get_Source_List_Voltage_Points": {
       "scpi": "SOURce:LIST:VOLTage:POINts?",
@@ -1919,7 +1927,9 @@
         "type": "NR1"
       },
       "subsystem": "STAT",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "A scrape misspelling: STAT:QUES:PTRansitiion? answers -113 on the 66103A (bench 2026-11-09); STAT:QUES:PTR? is the real query"
     },
     "Read_Error": {
       "scpi": "SYST:ERR?",
