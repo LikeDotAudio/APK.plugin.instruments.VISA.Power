@@ -449,8 +449,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "A"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_List_Current_Points",
@@ -502,8 +501,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "V"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_List_Voltage_Points",
@@ -823,7 +821,7 @@
         "returns": {
           "count": 1,
           "type": "NR3",
-          "unit": "V"
+          "unit": "A"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Level_Immediate_Amplitude",
@@ -850,7 +848,7 @@
         "returns": {
           "count": 1,
           "type": "NR3",
-          "unit": "V"
+          "unit": "A"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Level_Trigger_Amplitude",
@@ -1091,8 +1089,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "V"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Voltage_Points",
@@ -3560,8 +3557,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "A"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_List_Current_Points",
@@ -3613,8 +3609,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "V"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_List_Voltage_Points",
@@ -3972,7 +3967,7 @@
         "returns": {
           "count": 1,
           "type": "NR3",
-          "unit": "V"
+          "unit": "A"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Level_Immediate_Amplitude",
@@ -3999,7 +3994,7 @@
         "returns": {
           "count": 1,
           "type": "NR3",
-          "unit": "V"
+          "unit": "A"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Level_Trigger_Amplitude",
@@ -4240,8 +4235,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "V"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_List_Voltage_Points",

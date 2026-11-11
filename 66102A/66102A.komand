@@ -1468,8 +1468,7 @@
       "description": "Get list current points",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "A"
+        "type": "NR1"
       },
       "subsystem": "LIST",
       "unverified": true
@@ -1489,8 +1488,7 @@
       "description": "Get list voltage points",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "V"
+        "type": "NR1"
       },
       "subsystem": "LIST",
       "unverified": true
@@ -1660,7 +1658,7 @@
       "returns": {
         "count": 1,
         "type": "NR3",
-        "unit": "V"
+        "unit": "A"
       },
       "subsystem": "SOUR",
       "unverified": true
@@ -1671,7 +1669,7 @@
       "returns": {
         "count": 1,
         "type": "NR3",
-        "unit": "V"
+        "unit": "A"
       },
       "subsystem": "SOUR",
       "unverified": true
@@ -1805,8 +1803,7 @@
       "description": "This query returns the number of points specified in LIST:VOLT",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "V"
+        "type": "NR1"
       },
       "subsystem": "SOUR",
       "unverified": true
