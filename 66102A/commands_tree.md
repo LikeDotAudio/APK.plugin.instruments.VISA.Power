@@ -4,7 +4,7 @@
 
 Generated from the `.komand` table by `apkaudio-komand build-trees`. Edit the table, not this file.
 
-**190 commands** — SET 48 · RIG 4 · NAB 73 · DO 65 · 177 unverified (93%)
+**180 commands** — SET 48 · RIG 4 · NAB 67 · DO 61 · 167 unverified (92%)
 
 `SET` one argument · `RIG` several applied together · `NAB` a query · `DO` a parameterless action. **†** marks a command swept out of a manual and never sent to the instrument.
 
@@ -12,26 +12,18 @@ Generated from the `.komand` table by `apkaudio-komand build-trees`. Edit the ta
 
 Several statements in one message, so they hang off no single branch. Every statement after the first carries a leading colon — without it the parser reads it relative to the previous header's path and the instrument answers `-113`.
 
-- **DO** `Clear_Protection` · per-instance: `chan` · †
-  - `INST:NSEL <chan>;OUTP:PROT:CLE`
 - **NAB** `Get_Values` · → voltage, current<br>Measured output voltage and current.
   - `MEAS:VOLT?;:MEAS:CURR?`
-- **NAB** `Read_Values` · per-instance: `chan` · → voltage, current · †<br>Read Voltage and Current
-  - `INST:NSEL <chan>;MEAS:VOLT?;MEAS:CURR?`
-- **DO** `Reset_Module` · per-instance: `chan` · †
-  - `INST:NSEL <chan>;*RST`
-- **DO** `S1_OFF` · †
-  - `INST:NSEL 1;OUTP OFF`
-- **DO** `S1_ON` · †
-  - `INST:NSEL 1;OUTP ON`
+- **NAB** `Read_Values` · → voltage, current · †<br>Read Voltage and Current
+  - `MEAS:VOLT?;:MEAS:CURR?`
 - **RIG** `Set_Levels` · args: `voltage`, `current` · numeric (V)<br>Voltage and current limit together, in one message.
   - `VOLT <voltage>;:CURR <current>`
-- **RIG** `Set_Protection` · args: `ovp_level`, `ocp_state` · integer · per-instance: `chan` · †
-  - `INST:NSEL <chan>;VOLT:PROT <ovp_level>;CURR:PROT:STAT <ocp_state>`
+- **RIG** `Set_Protection` · args: `ovp_level`, `ocp_state` · integer · †
+  - `VOLT:PROT <ovp_level>;:CURR:PROT:STAT <ocp_state>`
 - **RIG** `Set_S1_Levels` · args: `volt`, `curr` · numeric (V) · †
-  - `INST:NSEL 1;VOLT <volt>;CURR <curr>`
-- **RIG** `Set_Voltage_Current` · args: `voltage`, `current` · integer · per-instance: `chan` · †
-  - `INST:NSEL <chan>;VOLT <voltage>;CURR <current>`
+  - `VOLT <volt>;:CURR <curr>`
+- **RIG** `Set_Voltage_Current` · args: `voltage`, `current` · integer · †
+  - `VOLT <voltage>;:CURR <current>`
 - **NAB** `module_settings` · → set_voltage, set_current, output, meas_voltage, meas_current, oper_condition<br>Everything the module was told and everything it reports, in one round trip.
   - `VOLT?;:CURR?;:OUTP?;:MEAS:VOLT?;:MEAS:CURR?;:STAT:OPER:COND?`
 
@@ -42,6 +34,8 @@ Several statements in one message, so they hang off no single branch. Every stat
 - `VOLT` — **SET** `Set_Voltage` · `<value>` · args: `value` · numeric (V)<br>Output voltage setpoint.
 - `OUTP` — **DO** `Output_OFF` · `OFF`<br>Output off.
 - `OUTP` — **DO** `Output_ON` · `ON`<br>Output on.
+- `OUTP` — **DO** `S1_OFF` · `OFF` · †
+- `OUTP` — **DO** `S1_ON` · `ON` · †
 - **`CAL`**
   - `STAT` — **SET** `Set_Calibrate_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>RST Value OFF
   - `AUT` — **DO** `Do_Calibrate_Aut` · †
@@ -57,7 +51,7 @@ Several statements in one message, so they hang off no single branch. Every stat
     - `LEV` — **DO** `Do_Calibrate_Voltage_Level` · †<br>This command can only be used in the calibration mode
     - `PROT` — **DO** `Do_Calibrate_Voltage_Protection` · †
 - **`CALibrate`**
-  - `STATe?` — **NAB** `Get_Calibrate_Status` · → NR3 · †<br>RST Value OFF
+  - `STATe?` — **NAB** `Get_Calibrate_Status` · → BOOL · †<br>RST Value OFF
 - **`CURR`**
   - `TRIG` — **SET** `Set_Current_Trigger` · `<value>` · args: `value` · numeric (A) · †
   - `TRIG?` — **NAB** `Get_Current_Trigger` · → NR3 A · †
@@ -78,17 +72,12 @@ Several statements in one message, so they hang off no single branch. Every stat
     - `STAT` — **SET** `Set_Display_Window_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command turns the power module optional front panel voltage and current displays on and off
 - **`DISPlay`**
   - **`WINDow`**
-    - `STAT?` — **NAB** `Get_Display_Window_Status` · → NR3 · †<br>This command turns the power module optional front panel voltage and current displays on and off
-- **`IMMediate`**
-  - `AMPlitude?` — **NAB** `Get_Immediate_Amplitude` · → 1 value · †<br>RST Value Table 3-2
-  - `AMPLitude` — **DO** `Do_Immediate_Amplitude` · †<br>This command directly programs the immediate current level of the power module
+    - `STAT?` — **NAB** `Get_Display_Window_Status` · → BOOL · †<br>This command turns the power module optional front panel voltage and current displays on and off
 - **`INIT`**
   - `CONT` — **SET** `Set_Initiate_Continuous` · `<value>` · args: `value` · bool: `OFF` | `ON` · †
   - `IMM` — **DO** `Do_Initiate_Immediate` · †<br>subsequent trigger action
 - **`INITiate`**
-  - `CONTinuous?` — **NAB** `Get_Initiate_Continuous` · → NR3 · †
-- **`INST`**
-  - `NSEL` — **DO** `Select_Channel` · `<chan>` · per-instance: `chan` · †
+  - `CONTinuous?` — **NAB** `Get_Initiate_Continuous` · → BOOL · †
 - **`LIST`**
   - `COUN` — **DO** `Do_List_Count` · †
   - `CURR` — **DO** `Do_List_Current` · †
@@ -96,66 +85,61 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `STEP` — **DO** `Do_List_Step` · †
   - `VOLT` — **DO** `Do_List_Voltage` · †
   - **`CURR`**
-    - `POIN?` — **NAB** `Get_List_Current_Points` · → NR1 A · †
+    - `POIN?` — **NAB** `Get_List_Current_Points` · → NR1 · †
   - **`DWEL`**
     - `POIN?` — **NAB** `Get_List_Dwel_Points` · → NR1 · †
   - **`VOLT`**
-    - `POIN?` — **NAB** `Get_List_Voltage_Points` · → NR1 V · †
+    - `POIN?` — **NAB** `Get_List_Voltage_Points` · → NR1 · †
 - **`OUTP`**
-  - `REL` — **SET** `Set_Output_Relay` · `<value>` · args: `value` · †<br>Output Subsystem
+  - `REL` — **SET** `Set_Output_Relay` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Output Subsystem
   - `STAT` — **SET** `Set_Output_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled
-  - `REL?` — **NAB** `Get_Output_Relay` · → NR1 · †<br>Output Subsystem
-  - `DFI` — **DO** `Do_Output_Dfi` · †
+  - `REL?` — **NAB** `Get_Output_Relay` · → BOOL · †<br>Output Subsystem
   - `PROT` — **DO** `Do_Output_Protection` · †
   - `TTLT` — **DO** `Do_Output_Ttltrg` · †
   - **`DFI`**
-    - `LINK` — **SET** `Set_Output_Dfi_Link` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `SUM3` · †<br>This command specifies which events within the power module are linked to DFI source events
     - `SOUR` — **SET** `Set_Output_Dfi_Source` · `<value>` · args: `value` · enum: `LINK` · †<br>This command selects the source for DFI events
     - `STAT` — **SET** `Set_Output_Dfi_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane
   - **`PROT`**
     - `DEL` — **SET** `Set_Output_Protection_Delay` · `<value>` · args: `value` · numeric (s) · †
+    - `CLE` — **DO** `Clear_Protection` · †
   - **`REL`**
     - `POL` — **SET** `Set_Output_Relay_Polarity` · `<value>` · args: `value` · enum: `NORM` | `REV` · †<br>This command is valid only if the power module is configured for the optional relay connector
     - `STAT` — **SET** `Set_Output_Relay_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command is valid only if the power module is configured for the optional relay connector
     - `STAT?` — **NAB** `Get_Output_Relay_Status` · → BOOL · †<br>This command is valid only if the power module is configured for the optional relay connector
   - **`TTLT`**
-    - `LINK` — **SET** `Set_Output_Ttltrg_Link` · `<value>` · args: `value` · bool: `OFF` | `ON` · †
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `LSC` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `RTG` | `STC` | `STS` | `SUM3` | `TDC` · †
     - `SOUR` — **SET** `Set_Output_Ttltrg_Source` · `<value>` · args: `value` · enum: `BUS` | `EXT` | `LINK` | `HOLD` · †
     - `STAT` — **SET** `Set_Output_Ttltrg_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe
-    - `LINK?` — **NAB** `Get_Output_Ttltrg_Link` · → BOOL · †
+    - `LINK?` — **NAB** `Get_Output_Ttltrg_Link` · → STR · †
     - `SOUR?` — **NAB** `Get_Output_Ttltrg_Source` · → CRD · †
     - `STAT?` — **NAB** `Get_Output_Ttltrg_Status` · → BOOL · †<br>This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe
 - **`OUTPut`**
-  - `STATe?` — **NAB** `Get_Output_Status` · → NR3 · †<br>If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled
+  - `STATe?` — **NAB** `Get_Output_Status` · → BOOL · †<br>If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled
   - **`DFI`**
-    - `LINK?` — **NAB** `Get_Output_Dfi_Link` · → NR3 · †<br>This command specifies which events within the power module are linked to DFI source events
-    - `SOUR?` — **NAB** `Get_Output_Dfi_Source` · → NR3 · †<br>This command selects the source for DFI events
-    - `STATe?` — **NAB** `Get_Output_Dfi_Status` · → NR3 · †<br>This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane
+    - `LINK?` — **NAB** `Get_Output_Dfi_Link` · → STR · †<br>This command specifies which events within the power module are linked to DFI source events
+    - `SOUR?` — **NAB** `Get_Output_Dfi_Source` · → CRD · †<br>This command selects the source for DFI events
+    - `STATe?` — **NAB** `Get_Output_Dfi_Status` · → BOOL · †<br>This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane
   - **`PROTection`**
     - `DELay?` — **NAB** `Get_Output_Protection_Delay` · → NR3 s · †
+    - `CLEar` — **DO** `Do_Protection_Clear` · †<br>The Effect of Optional Headers
   - **`RELay`**
-    - `POLarity?` — **NAB** `Get_Output_Relay_Polarity` · → NR1 · †<br>This command is valid only if the power module is configured for the optional relay connector
-- **`PROTECTION`**
-  - `CLEAR` — **DO** `Do_Protection_Clear` · †<br>The Effect of Optional Headers
-- **`QUES`**
-  - `EVEN?` — **NAB** `Get_Questionable_Event` · → NR1 · †
+    - `POLarity?` — **NAB** `Get_Output_Relay_Polarity` · → CRD · †<br>This command is valid only if the power module is configured for the optional relay connector
 - **`SOUR`**
   - **`CURR`**
     - **`LEV`**
       - **`IMM`**
         - `AMPL` — **SET** `Set_Source_Current_Level_Immediate_Amplitude` · `<value>` · args: `value` · numeric (V) · †
-        - `AMPL?` — **NAB** `Get_Source_Current_Level_Immediate_Amplitude` · → NR3 V · †
+        - `AMPL?` — **NAB** `Get_Source_Current_Level_Immediate_Amplitude` · → NR3 A · †
       - **`TRIG`**
         - `AMPL` — **SET** `Set_Source_Current_Level_Trigger_Amplitude` · `<value>` · args: `value` · numeric (V) · †
-        - `AMPL?` — **NAB** `Get_Source_Current_Level_Trigger_Amplitude` · → NR3 V · †
+        - `AMPL?` — **NAB** `Get_Source_Current_Level_Trigger_Amplitude` · → NR3 A · †
   - **`LIST`**
-    - `STEP` — **SET** `Set_Source_List_Step` · `<value>` · args: `value` · integer · †<br>In either mode, triggers that occur during a dwell interval are ignored
-    - `DWEL?` — **NAB** `Get_Source_List_Dwel` · → 1 value · †<br>- If LIST:STEP ONCE has been programmed, the output remains at the present level until a trigger sequences the next point in the list
-    - `STEP?` — **NAB** `Get_Source_List_Step` · → NR1 · †<br>In either mode, triggers that occur during a dwell interval are ignored
+    - `STEP` — **SET** `Set_Source_List_Step` · `<value>` · args: `value` · enum: `ONCE` | `AUTO` · †<br>In either mode, triggers that occur during a dwell interval are ignored
+    - `STEP?` — **NAB** `Get_Source_List_Step` · → CRD · †<br>In either mode, triggers that occur during a dwell interval are ignored
     - **`DWEL`**
       - `POIN?` — **NAB** `Get_Source_List_Dwel_Points` · → NR1 · †
   - **`VOLT`**
-    - `SENS?` — **NAB** `Get_Source_Voltage_Sense` · → NR3 V · †
     - **`LEV`**
       - **`IMM`**
         - `AMPL` — **DO** `Do_Source_Voltage_Level_Immediate_Amplitude` · †
@@ -174,14 +158,14 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `LIST` — **DO** `Do_Source_List` · †<br>Conventions
   - **`CURRent`**
     - `MODE` — **SET** `Set_Source_Current_Mode` · `<value>` · args: `value` · enum: `FIX` | `LIST` · †<br>LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
-    - `MODE?` — **NAB** `Get_Source_Current_Mode` · → NR3 · †<br>LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
+    - `MODE?` — **NAB** `Get_Source_Current_Mode` · → CRD · †<br>LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
     - `LEVel` — **DO** `Do_Source_Current_Level` · †<br>This command directly programs the immediate current level of the power module
     - **`LEVel`**
       - `TRIGgered` — **DO** `Do_Source_Current_Level_Trigger` · †<br>This command programs the pending triggered current level of the power module
       - `TRIGgered` — **DO** `Do_Source_Currlev_Trigger` · †<br>RST Value _See Table 3-2_
     - **`PROTection`**
       - `STATe` — **SET** `Set_Source_Current_Protection_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command enables or disables the power module overcurrent (OC) protection function
-      - `STATe?` — **NAB** `Get_Source_Current_Protection_Status` · → NR3 · †<br>This command enables or disables the power module overcurrent (OC) protection function
+      - `STATe?` — **NAB** `Get_Source_Current_Protection_Status` · → BOOL · †<br>This command enables or disables the power module overcurrent (OC) protection function
   - **`LIST`**
     - `COUNt` — **SET** `Set_Source_List_Count` · `<value>` · args: `value` · integer · †<br>This command sets the number of times that the list is executed before it is completed
     - `DWEL<chan>` — **SET** `Set_Source_List_Dwel` · `<value>` · args: `value` · integer · per-instance: `chan` · †<br>- If LIST:STEP ONCE has been programmed, the output remains at the present level until a trigger sequences the next point in the list
@@ -190,10 +174,8 @@ Several statements in one message, so they hang off no single branch. Every stat
     - `VOLTage` — **DO** `Do_Source_List_Voltage` · †<br>This command specifies the output voltage points in a list
     - **`CURRent`**
       - `POINts?` — **NAB** `Get_Source_List_Current_Points` · → NR1 · †<br>This query returns the number of points specified in LIST:CURR
-    - **`DWFL1`**
-      - `POINts?` — **NAB** `Get_Source_List_Dwfl_Points` · → NR1 · †<br>This query returns the number of points specified in LIST:DWEL
     - **`VOLTage`**
-      - `POINts?` — **NAB** `Get_Source_List_Voltage_Points` · → NR1 V · †<br>This query returns the number of points specified in LIST:VOLT
+      - `POINts?` — **NAB** `Get_Source_List_Voltage_Points` · → NR1 · †<br>This query returns the number of points specified in LIST:VOLT
   - **`VOLTage`**
     - `MODE` — **SET** `Set_Source_Voltage_Mode` · `<value>` · args: `value` · enum: `FIX` | `LIST` · †<br>LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list
     - `MODE?` — **NAB** `Get_Source_Voltage_Mode` · → CRD V · †<br>LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list
@@ -229,30 +211,27 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`STATus`**
   - **`QUEStionable`**
     - `NTRansition?` — **NAB** `Get_Status_Questionable_Ntransition` · → NR1 · †<br>corresponding Questionable Event register
-    - `PTRansitiion?` — **NAB** `Get_Status_Questionable_Ptransition` · → NR1 · †<br>Register Commands
 - **`SYST`**
   - `VERS?` — **NAB** `Get_System_Version` · → 1 value · †<br>This query returns the SCPI version number to which the power module complies
-  - `ERR?` — **NAB** `Read_Error` · → NR2
+  - `ERR?` — **NAB** `Read_Error` · → ERROR
 - **`TRIG`**
   - `DEL` — **SET** `Set_Trigger_Delay` · `<value>` · args: `value` · numeric (s) · †
-  - `LINK` — **SET** `Set_Trigger_Link` · `<value>` · args: `value` · bool: `OFF` | `ON` · †
+  - `LINK` — **SET** `Set_Trigger_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `LSC` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `RTG` | `STC` | `STS` | `SUM3` | `TDC` · †
   - `SOUR` — **SET** `Set_Trigger_Source` · `<value>` · args: `value` · enum: `BUS` | `EXT` | `HOLD` | `LINK` | `TTLT` · †
   - `DEL?` — **NAB** `Get_Trigger_Delay` · → NR3 s · †
-  - `LINK?` — **NAB** `Get_Trigger_Link` · → BOOL · †
+  - `LINK?` — **NAB** `Get_Trigger_Link` · → STR · †
   - `SOUR?` — **NAB** `Get_Trigger_Source` · → CRD · †
   - `IMM` — **DO** `Do_Trigger_Immediate` · †
   - **`STAR`**
-    - `LINK` — **SET** `Set_Trigger_Start_Link` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `LSC` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `RTG` | `STC` | `STS` | `SUM3` | `TDC` · †<br>This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
 - **`TRIGger`**
   - **`STARt`**
     - `DELay` — **SET** `Set_Trigger_Start_Delay` · `<value>` · args: `value` · numeric (s) · †<br>This command sets the time delay between the detection of an event on the specified trigger source and the start of any corresponding trigger action on the power module’s output
     - `SOURce` — **SET** `Set_Trigger_Start_Source` · `<value>` · args: `value` · enum: `BUS` | `EXT` | `HOLD` | `LINK` | `TTLT` · †<br>This command selects the power module input trigger source as follows
     - `DELay?` — **NAB** `Get_Trigger_Start_Delay` · → NR3 s · †<br>This command sets the time delay between the detection of an event on the specified trigger source and the start of any corresponding trigger action on the power module’s output
-    - `LINK?` — **NAB** `Get_Trigger_Start_Link` · → CRD · †<br>This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK?` — **NAB** `Get_Trigger_Start_Link` · → STR · †<br>This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
     - `SOURce?` — **NAB** `Get_Trigger_Start_Source` · → CRD · †<br>This command selects the power module input trigger source as follows
     - `IMMediate` — **DO** `Do_Trigger_Start_Immediate` · †<br>1. Initiate a pending level change as specified by CURR[:LEV]:TRIG or VOLT[:LEV]:TRIG
-- **`TTLT`**
-  - `LINK` — **DO** `Do_Ttltrg_Link` · †
 - **`VOLT`**
   - `TRIG` — **SET** `Set_Voltage_Trigger` · `<value>` · args: `value` · numeric (V) · †
   - `PROT?` — **NAB** `Get_Voltage_Protection` · → NR3 V · †<br>Query Indicator
@@ -287,6 +266,7 @@ Several statements in one message, so they hang off no single branch. Every stat
 - `*TST?` — **NAB** `Get_Tst` · → NR1 · †
 - `*IDN?` — **NAB** `Read_IDN` · → AARD · †<br>Get idn
 - `*RST` — **DO** `Reset_Device`<br>System Reset
+- `*RST` — **DO** `Reset_Module` · †
 - `*ESE <value>` — **SET** `Set_Ese` · `<value>` · args: `value` · integer · †
 - `*PSC <value>` — **SET** `Set_Psc` · `<value>` · args: `value` · bool: `0` | `1` · †
 - `*RCL <value>` — **SET** `Set_Rcl` · `<value>` · args: `value` · integer · †

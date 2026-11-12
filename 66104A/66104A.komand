@@ -410,13 +410,19 @@
       "scpi": "SOUR:LIST:STEP <value>",
       "description": "In either mode, triggers that occur during a dwell interval are ignored",
       "arg": {
-        "kind": "integer"
+        "kind": "enum",
+        "values": [
+          "ONCE",
+          "AUTO"
+        ],
+        "default": "AUTO"
       },
       "args": [
         "value"
       ],
       "subsystem": "SOUR",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: [SOURce:]LIST:STEP {ONCE|AUTO} (5959-3362 Ch. 4); the 66104A answers AUTO to LIST:STEP? on the bench."
     },
     "Set_Source_Voltage_Level_Trigger_Amplitude": {
       "scpi": "SOUR:VOLT:LEV:TRIG:AMPL <value>",
@@ -841,6 +847,14 @@
       "group": "Common Commands",
       "subsystem": "Common"
     },
+    "Reset_Module": {
+      "scpi": "*RST",
+      "description": "Reset Module",
+      "group": "Output Control",
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL <chan>;*RST`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true,
+      "alias_of": "Reset_Device"
+    },
     "Trigger_Immediate": {
       "scpi": "*TRG",
       "description": "Trigger Immediate",
@@ -989,41 +1003,15 @@
       "subsystem": "INIT",
       "unverified": true
     },
-    "S1_OFF": {
-      "scpi": "INST:NSEL 1;OUTP OFF",
-      "description": "S1 OFF",
-      "group": "Individual Output Control",
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
-    },
-    "S1_ON": {
-      "scpi": "INST:NSEL 1;OUTP ON",
-      "description": "S1 ON",
-      "group": "Individual Output Control",
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
-    },
     "Select_Channel": {
       "scpi": "INST:NSEL <chan>",
       "description": "Select Channel",
       "group": "Channel Selection",
       "subsystem": "INSTrument",
       "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
-    },
-    "Reset_Module": {
-      "scpi": "INST:NSEL <chan>;*RST",
-      "description": "Reset Module",
-      "group": "Output Control",
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
-    },
-    "Clear_Protection": {
-      "scpi": "INST:NSEL <chan>;OUTP:PROT:CLE",
-      "description": "Clear Protection",
-      "group": "Output Control",
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
+      "unverified": true,
+      "retired": true,
+      "retired_because": "Retired: Was `INST:NSEL <chan>`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. There is nothing to select."
     },
     "Do_List_Count": {
       "scpi": "LIST:COUN",
@@ -1062,12 +1050,28 @@
       "subsystem": "OUTPut",
       "notes": "Was `INST:NSEL <chan>;OUTP OFF`. Verified on the 66101A at gpib7,30,0, 2026-08-08."
     },
+    "S1_OFF": {
+      "scpi": "OUTP OFF",
+      "description": "S1 OFF",
+      "group": "Individual Output Control",
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL 1;OUTP OFF`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true,
+      "alias_of": "Output_OFF"
+    },
     "Output_ON": {
       "scpi": "OUTP ON",
       "description": "Output on.",
       "group": "Output Control",
       "subsystem": "OUTPut",
       "notes": "Was `INST:NSEL <chan>;OUTP ON`. Verified on the 66101A at gpib7,30,0, 2026-08-08."
+    },
+    "S1_ON": {
+      "scpi": "OUTP ON",
+      "description": "S1 ON",
+      "group": "Individual Output Control",
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL 1;OUTP ON`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true,
+      "alias_of": "Output_ON"
     },
     "Do_Output_Dfi": {
       "scpi": "OUTP:DFI",
@@ -1083,6 +1087,13 @@
       "subsystem": "OUTP",
       "unverified": true
     },
+    "Clear_Protection": {
+      "scpi": "OUTP:PROT:CLE",
+      "description": "Clear Protection",
+      "group": "Output Control",
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL <chan>;OUTP:PROT:CLE`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true
+    },
     "Do_Output_Ttltrg": {
       "scpi": "OUTP:TTLT",
       "description": "CURR:PROT:STAT,32",
@@ -1090,11 +1101,13 @@
       "unverified": true
     },
     "Do_Protection_Clear": {
-      "scpi": "PROTECTION:CLEAR",
-      "scpiFast": "PROT:CLE",
+      "scpi": "OUTPut:PROTection:CLEar",
+      "scpiFast": "OUTP:PROT:CLE",
       "description": "The Effect of Optional Headers",
       "subsystem": "PROTECTION",
-      "unverified": true
+      "unverified": true,
+      "notes": "Was `PROTECTION:CLEAR`: PROTection hangs off OUTPut — `OUTPut:PROTection:CLEar` (the HP 661xxA MPS Programming Guide 5959-3362 p. 41; the \"Effect of Optional Headers\" example the scraper read it from).",
+      "alias_of": "Clear_Protection"
     },
     "Do_Source_Voltage_Level_Immediate_Amplitude": {
       "scpi": "SOUR:VOLT:LEV:IMM:AMPL",
@@ -1252,7 +1265,7 @@
   },
   "rig": {
     "Set_S1_Levels": {
-      "scpi": "INST:NSEL 1;VOLT <volt>;CURR <curr>",
+      "scpi": "VOLT <volt>;:CURR <curr>",
       "description": "Set S1 Levels",
       "arg": {
         "kind": "numeric",
@@ -1263,35 +1276,7 @@
         "volt",
         "curr"
       ],
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
-    },
-    "Set_Voltage_Current": {
-      "scpi": "INST:NSEL <chan>;VOLT <voltage>;CURR <current>",
-      "description": "Set Voltage Current",
-      "arg": {
-        "kind": "integer"
-      },
-      "group": "MPS Settings",
-      "args": [
-        "voltage",
-        "current"
-      ],
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
-    },
-    "Set_Protection": {
-      "scpi": "INST:NSEL <chan>;VOLT:PROT <ovp_level>;CURR:PROT:STAT <ocp_state>",
-      "description": "Set Protection",
-      "arg": {
-        "kind": "integer"
-      },
-      "group": "MPS Settings",
-      "args": [
-        "ovp_level",
-        "ocp_state"
-      ],
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL 1;VOLT <volt>;CURR <curr>`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
       "unverified": true
     },
     "Set_Levels": {
@@ -1308,7 +1293,37 @@
         "kind": "numeric",
         "unit": "V",
         "limits": "query"
-      }
+      },
+      "alias_of": "Set_S1_Levels"
+    },
+    "Set_Voltage_Current": {
+      "scpi": "VOLT <voltage>;:CURR <current>",
+      "description": "Set Voltage Current",
+      "arg": {
+        "kind": "integer"
+      },
+      "group": "MPS Settings",
+      "args": [
+        "voltage",
+        "current"
+      ],
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL <chan>;VOLT <voltage>;CURR <current>`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true,
+      "alias_of": "Set_S1_Levels"
+    },
+    "Set_Protection": {
+      "scpi": "VOLT:PROT <ovp_level>;:CURR:PROT:STAT <ocp_state>",
+      "description": "Set Protection",
+      "arg": {
+        "kind": "integer"
+      },
+      "group": "MPS Settings",
+      "args": [
+        "ovp_level",
+        "ocp_state"
+      ],
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL <chan>;VOLT:PROT <ovp_level>;CURR:PROT:STAT <ocp_state>`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true
     }
   },
   "nab": {
@@ -1408,10 +1423,11 @@
       "description": "RST Value OFF",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "CAL",
-      "unverified": true
+      "unverified": true,
+      "notes": "Returns BOOL: an {OFF|ON} state answers 0 or 1 (5959-3362 Ch. 4; the set of this node is bool)."
     },
     "Get_Current_Trigger": {
       "scpi": "CURR:TRIG?",
@@ -1430,10 +1446,11 @@
       "description": "This command turns the power module optional front panel voltage and current displays on and off",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "DISP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Returns BOOL: an {OFF|ON} state answers 0 or 1 (5959-3362 Ch. 4; the set of this node is bool)."
     },
     "Get_Immediate_Amplitude": {
       "scpi": ":IMMediate:AMPlitude?",
@@ -1453,33 +1470,11 @@
       "description": "Controlling Triggers",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "INIT",
-      "unverified": true
-    },
-    "Read_Values": {
-      "scpi": "INST:NSEL <chan>;MEAS:VOLT?;MEAS:CURR?",
-      "description": "Read Voltage and Current",
-      "returns": {
-        "count": 2,
-        "separator": ";",
-        "fields": [
-          {
-            "name": "voltage",
-            "type": "NR3",
-            "unit": "V"
-          },
-          {
-            "name": "current",
-            "type": "NR3",
-            "unit": "A"
-          }
-        ]
-      },
-      "group": "MPS Metering",
-      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08.",
-      "unverified": true
+      "unverified": true,
+      "notes": "Returns BOOL: an {OFF|ON} state answers 0 or 1 (5959-3362 Ch. 4; the set of this node is bool)."
     },
     "Get_List_Current_Points": {
       "scpi": "LIST:CURR:POIN?",
@@ -1533,6 +1528,30 @@
         ]
       },
       "notes": "Was `INST:NSEL <chan>;MEAS:VOLT?;MEAS:CURR?` — see the module docstring; it answered nothing here on either count. Verified on the 66101A at gpib7,30,0, 2026-08-08."
+    },
+    "Read_Values": {
+      "scpi": "MEAS:VOLT?;:MEAS:CURR?",
+      "description": "Read Voltage and Current",
+      "returns": {
+        "count": 2,
+        "separator": ";",
+        "fields": [
+          {
+            "name": "voltage",
+            "type": "NR3",
+            "unit": "V"
+          },
+          {
+            "name": "current",
+            "type": "NR3",
+            "unit": "A"
+          }
+        ]
+      },
+      "group": "MPS Metering",
+      "notes": "Undefined on a module addressed at its own GPIB secondary address, which is how all seven on this bench are wired — `SYST:ERR?` answers -113 after it, and it silently kills any reply chained behind it. Correct only for a mainframe addressed as one instrument. Checked 2026-08-08. Was `INST:NSEL <chan>;MEAS:VOLT?;MEAS:CURR?`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. The module's own commands, each from the root (p. 41, 48, 35, 33).",
+      "unverified": true,
+      "alias_of": "Get_Values"
     },
     "Get_Output_Relay_Status": {
       "scpi": "OUTP:REL:STAT?",
@@ -1653,10 +1672,11 @@
       "description": "If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "OUTP",
-      "unverified": true
+      "unverified": true,
+      "notes": "Returns BOOL: an {OFF|ON} state answers 0 or 1 (5959-3362 Ch. 4; the set of this node is bool)."
     },
     "Get_Questionable_Event": {
       "scpi": "QUES:EVEN?",
@@ -1775,10 +1795,11 @@
       "description": "This command enables or disables the power module overcurrent (OC) protection function",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "SOUR",
-      "unverified": true
+      "unverified": true,
+      "notes": "Returns BOOL: an {OFF|ON} state answers 0 or 1 (5959-3362 Ch. 4; the set of this node is bool)."
     },
     "Get_Source_List_Count": {
       "scpi": "SOURce:LIST:COUNt?",

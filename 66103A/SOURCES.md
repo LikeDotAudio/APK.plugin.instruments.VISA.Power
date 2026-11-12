@@ -53,3 +53,27 @@ The relay rows are valid only with the optional relay connector; a module withou
 
 - `do/Do_Ttltrg_Link` — `TTLT:LINK`: there is no TTLT root node; the link is OUTPut:TTLTrg:LINK (Set_Output_Ttltrg_Link)
 - `do/Do_Output_Dfi` — bare `OUTP:DFI`: OUTPut:DFI[:STATe] takes a <bool> (p. 39); it is Set_Output_Dfi_Status
+
+## SCPI paths — every header against the model's own tree (scpi_paths.py, 2026-11-11)
+
+The tree: `66103A.scpi.json`, read off HP 661xxA MPS Programming Guide 5959-3362, Chapter 4 Language Dictionary; [SOURce:] is the default node. Each entry's `notes` / `retired_because` carries the full reason and page; the 33220A's Certify of 2026-11-11 (199 tries) and the GUI-certificate book are the bench evidence. Nothing was sent to verify.
+
+| Command | Change | Was |
+|---|---|---|
+| `do/Do_Protection_Clear` | scpi → `OUTPut:PROTection:CLEar` | was `PROTECTION:CLEAR` |
+| `do/S1_OFF` | scpi → `OUTP OFF` | was `INST:NSEL 1;OUTP OFF` |
+| `do/S1_ON` | scpi → `OUTP ON` | was `INST:NSEL 1;OUTP ON` |
+| `do/Reset_Module` | scpi → `*RST` | was `INST:NSEL <chan>;*RST` |
+| `do/Clear_Protection` | scpi → `OUTP:PROT:CLE` | was `INST:NSEL <chan>;OUTP:PROT:CLE` |
+| `rig/Set_S1_Levels` | scpi → `VOLT <volt>;:CURR <curr>` | was `INST:NSEL 1;VOLT <volt>;CURR <curr>` |
+| `rig/Set_Voltage_Current` | scpi → `VOLT <voltage>;:CURR <current>` | was `INST:NSEL <chan>;VOLT <voltage>;CURR <current>` |
+| `rig/Set_Protection` | scpi → `VOLT:PROT <ovp_level>;:CURR:PROT:STAT <ocp_state>` | was `INST:NSEL <chan>;VOLT:PROT <ovp_level>;CURR:PROT:STAT <ocp_state>` |
+| `nab/Read_Values` | scpi → `MEAS:VOLT?;:MEAS:CURR?` | was `INST:NSEL <chan>;MEAS:VOLT?;MEAS:CURR?` |
+| `do/Select_Channel` | retired — Retired: Was `INST:NSEL <chan>`: the 661xxA has no INSTrument subsystem (the HP 661xxA MPS Programming Guide 5959-3362 has none) — each module is its own GPIB secondary address (Dev730-N), and the bench answered -113 after `INST:NSEL`, which also killed every reply chained behind it. There is nothing to select. |  |
+
+### Return formats and argument kinds (same audit, 2026-11-11)
+
+| Command | Change |
+|---|---|
+| `nab/Get_Calibrate_Status`, `Get_Display_Window_Status`, `Get_Initiate_Continuous`, `Get_Output_Status`, `Get_Source_Current_Protection_Status` (where live) | returns BOOL (was NR3) — an {OFF\|ON} node |
+| `set/Set_Source_List_Step` | arg enum ONCE\|AUTO (was integer), 5959-3362 p. 38; the 66104A answers AUTO |

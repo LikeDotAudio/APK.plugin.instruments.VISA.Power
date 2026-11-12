@@ -1,0 +1,30 @@
+{
+  "model": "66103A",
+  "manual": "HP 661xxA MPS Programming Guide 5959-3362, Chapter 4 Language Dictionary; [SOURce:] is the default node",
+  "roots": [
+    "ABORt",
+    "CALibration",
+    "DISPlay",
+    "INITiate",
+    "MEASure",
+    "OUTPut",
+    "SOURce",
+    "STATus",
+    "SYSTem",
+    "TRIGger",
+    "CURRent",
+    "VOLTage",
+    "LIST",
+    "DIGital"
+  ],
+  "optional": [
+    "SOURce",
+    "IMMediate",
+    "LEVel",
+    "AMPLitude",
+    "DC",
+    "SEQuence",
+    "TRANsient"
+  ],
+  "unresolved": {}
+}

@@ -85,12 +85,12 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 181,
+    "total_commands": 180,
     "get_count": 64,
     "set_count": 48,
     "nab_count": 67,
     "rig_count": 4,
-    "do_count": 62
+    "do_count": 61
   },
   "endpoints": {
     "get": {
@@ -342,7 +342,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Calibrate_Status",
@@ -396,7 +396,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Display_Window_Status",
@@ -423,7 +423,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Initiate_Continuous",
@@ -794,7 +794,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Status",
@@ -1008,7 +1008,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Protection_Status",
@@ -2502,7 +2502,12 @@
           "value"
         ],
         "arg": {
-          "kind": "integer"
+          "kind": "enum",
+          "values": [
+            "ONCE",
+            "AUTO"
+          ],
+          "default": "AUTO"
         },
         "returns": null,
         "mqtt": {
@@ -3423,7 +3428,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Calibrate_Status",
@@ -3477,7 +3482,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Display_Window_Status",
@@ -3504,7 +3509,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Initiate_Continuous",
@@ -3513,44 +3518,6 @@
             "command": "Get_Initiate_Continuous"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Initiate_Continuous",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Read_Values": {
-        "command": "Read_Values",
-        "verb": "nab",
-        "description": "Read Voltage and Current",
-        "scpi": "INST:NSEL <chan>;MEAS:VOLT?;MEAS:CURR?",
-        "subsystem": "General",
-        "group": "MPS Metering",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 2,
-          "separator": ";",
-          "fields": [
-            {
-              "name": "voltage",
-              "type": "NR3",
-              "unit": "V"
-            },
-            {
-              "name": "current",
-              "type": "NR3",
-              "unit": "A"
-            }
-          ]
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Read_Values",
-          "direction": "in",
-          "payload_format": {
-            "command": "Read_Values"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Read_Values",
           "reading_direction": "out"
         },
         "unverified": true
@@ -3670,6 +3637,44 @@
           "reading_direction": "out"
         },
         "unverified": false
+      },
+      "Read_Values": {
+        "command": "Read_Values",
+        "verb": "nab",
+        "description": "Read Voltage and Current",
+        "scpi": "MEAS:VOLT?;:MEAS:CURR?",
+        "subsystem": "General",
+        "group": "MPS Metering",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 2,
+          "separator": ";",
+          "fields": [
+            {
+              "name": "voltage",
+              "type": "NR3",
+              "unit": "V"
+            },
+            {
+              "name": "current",
+              "type": "NR3",
+              "unit": "A"
+            }
+          ]
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Read_Values",
+          "direction": "in",
+          "payload_format": {
+            "command": "Read_Values"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Read_Values",
+          "reading_direction": "out"
+        },
+        "unverified": true
       },
       "Get_Output_Relay_Status": {
         "command": "Get_Output_Relay_Status",
@@ -3951,7 +3956,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Status",
@@ -4165,7 +4170,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Protection_Status",
@@ -5011,7 +5016,7 @@
         "command": "Set_S1_Levels",
         "verb": "rig",
         "description": "Set S1 Levels",
-        "scpi": "INST:NSEL 1;VOLT <volt>;CURR <curr>",
+        "scpi": "VOLT <volt>;:CURR <curr>",
         "subsystem": "General",
         "group": "Configuration (Volts/Amps)",
         "args": [
@@ -5030,58 +5035,6 @@
             "command": "Set_S1_Levels",
             "volt": "<volt>",
             "curr": "<curr>"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Voltage_Current": {
-        "command": "Set_Voltage_Current",
-        "verb": "rig",
-        "description": "Set Voltage Current",
-        "scpi": "INST:NSEL <chan>;VOLT <voltage>;CURR <current>",
-        "subsystem": "General",
-        "group": "MPS Settings",
-        "args": [
-          "voltage",
-          "current"
-        ],
-        "arg": {
-          "kind": "integer"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Set_Voltage_Current",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Voltage_Current",
-            "voltage": "<voltage>",
-            "current": "<current>"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Protection": {
-        "command": "Set_Protection",
-        "verb": "rig",
-        "description": "Set Protection",
-        "scpi": "INST:NSEL <chan>;VOLT:PROT <ovp_level>;CURR:PROT:STAT <ocp_state>",
-        "subsystem": "General",
-        "group": "MPS Settings",
-        "args": [
-          "ovp_level",
-          "ocp_state"
-        ],
-        "arg": {
-          "kind": "integer"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Set_Protection",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Protection",
-            "ovp_level": "<ovp_level>",
-            "ocp_state": "<ocp_state>"
           }
         },
         "unverified": true
@@ -5113,6 +5066,58 @@
           }
         },
         "unverified": false
+      },
+      "Set_Voltage_Current": {
+        "command": "Set_Voltage_Current",
+        "verb": "rig",
+        "description": "Set Voltage Current",
+        "scpi": "VOLT <voltage>;:CURR <current>",
+        "subsystem": "General",
+        "group": "MPS Settings",
+        "args": [
+          "voltage",
+          "current"
+        ],
+        "arg": {
+          "kind": "integer"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Voltage_Current",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Voltage_Current",
+            "voltage": "<voltage>",
+            "current": "<current>"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Protection": {
+        "command": "Set_Protection",
+        "verb": "rig",
+        "description": "Set Protection",
+        "scpi": "VOLT:PROT <ovp_level>;:CURR:PROT:STAT <ocp_state>",
+        "subsystem": "General",
+        "group": "MPS Settings",
+        "args": [
+          "ovp_level",
+          "ocp_state"
+        ],
+        "arg": {
+          "kind": "integer"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Protection",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Protection",
+            "ovp_level": "<ovp_level>",
+            "ocp_state": "<ocp_state>"
+          }
+        },
+        "unverified": true
       }
     },
     "do": {
@@ -5178,6 +5183,27 @@
           }
         },
         "unverified": false
+      },
+      "Reset_Module": {
+        "command": "Reset_Module",
+        "verb": "do",
+        "description": "Reset Module",
+        "scpi": "*RST",
+        "subsystem": "General",
+        "group": "Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Reset_Module",
+          "direction": "in",
+          "payload_format": {
+            "command": "Reset_Module"
+          }
+        },
+        "unverified": true
       },
       "Trigger_Immediate": {
         "command": "Trigger_Immediate",
@@ -5642,111 +5668,6 @@
         },
         "unverified": true
       },
-      "S1_OFF": {
-        "command": "S1_OFF",
-        "verb": "do",
-        "description": "S1 OFF",
-        "scpi": "INST:NSEL 1;OUTP OFF",
-        "subsystem": "General",
-        "group": "Individual Output Control",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/S1_OFF",
-          "direction": "in",
-          "payload_format": {
-            "command": "S1_OFF"
-          }
-        },
-        "unverified": true
-      },
-      "S1_ON": {
-        "command": "S1_ON",
-        "verb": "do",
-        "description": "S1 ON",
-        "scpi": "INST:NSEL 1;OUTP ON",
-        "subsystem": "General",
-        "group": "Individual Output Control",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/S1_ON",
-          "direction": "in",
-          "payload_format": {
-            "command": "S1_ON"
-          }
-        },
-        "unverified": true
-      },
-      "Select_Channel": {
-        "command": "Select_Channel",
-        "verb": "do",
-        "description": "Select Channel",
-        "scpi": "INST:NSEL <chan>",
-        "subsystem": "INSTrument",
-        "group": "Channel Selection",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Select_Channel",
-          "direction": "in",
-          "payload_format": {
-            "command": "Select_Channel"
-          }
-        },
-        "unverified": true
-      },
-      "Reset_Module": {
-        "command": "Reset_Module",
-        "verb": "do",
-        "description": "Reset Module",
-        "scpi": "INST:NSEL <chan>;*RST",
-        "subsystem": "General",
-        "group": "Output Control",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Reset_Module",
-          "direction": "in",
-          "payload_format": {
-            "command": "Reset_Module"
-          }
-        },
-        "unverified": true
-      },
-      "Clear_Protection": {
-        "command": "Clear_Protection",
-        "verb": "do",
-        "description": "Clear Protection",
-        "scpi": "INST:NSEL <chan>;OUTP:PROT:CLE",
-        "subsystem": "General",
-        "group": "Output Control",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Clear_Protection",
-          "direction": "in",
-          "payload_format": {
-            "command": "Clear_Protection"
-          }
-        },
-        "unverified": true
-      },
       "Do_List_Count": {
         "command": "Do_List_Count",
         "verb": "do",
@@ -5873,6 +5794,27 @@
         },
         "unverified": false
       },
+      "S1_OFF": {
+        "command": "S1_OFF",
+        "verb": "do",
+        "description": "S1 OFF",
+        "scpi": "OUTP OFF",
+        "subsystem": "General",
+        "group": "Individual Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/S1_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "S1_OFF"
+          }
+        },
+        "unverified": true
+      },
       "Output_ON": {
         "command": "Output_ON",
         "verb": "do",
@@ -5894,6 +5836,27 @@
         },
         "unverified": false
       },
+      "S1_ON": {
+        "command": "S1_ON",
+        "verb": "do",
+        "description": "S1 ON",
+        "scpi": "OUTP ON",
+        "subsystem": "General",
+        "group": "Individual Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/S1_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "S1_ON"
+          }
+        },
+        "unverified": true
+      },
       "Do_Output_Protection": {
         "command": "Do_Output_Protection",
         "verb": "do",
@@ -5911,6 +5874,27 @@
           "direction": "in",
           "payload_format": {
             "command": "Do_Output_Protection"
+          }
+        },
+        "unverified": true
+      },
+      "Clear_Protection": {
+        "command": "Clear_Protection",
+        "verb": "do",
+        "description": "Clear Protection",
+        "scpi": "OUTP:PROT:CLE",
+        "subsystem": "General",
+        "group": "Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Clear_Protection",
+          "direction": "in",
+          "payload_format": {
+            "command": "Clear_Protection"
           }
         },
         "unverified": true
@@ -5940,8 +5924,8 @@
         "command": "Do_Protection_Clear",
         "verb": "do",
         "description": "The Effect of Optional Headers",
-        "scpi": "PROTECTION:CLEAR",
-        "scpi_fast": "PROT:CLE",
+        "scpi": "OUTPut:PROTection:CLEar",
+        "scpi_fast": "OUTP:PROT:CLE",
         "subsystem": "PROTECTION",
         "group": "PROTECTION",
         "args": [],

@@ -73,12 +73,12 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 179,
+    "total_commands": 178,
     "get_count": 64,
     "set_count": 49,
     "nab_count": 66,
     "rig_count": 2,
-    "do_count": 62
+    "do_count": 61
   },
   "endpoints": {
     "get": {
@@ -330,7 +330,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Calibrate_Status",
@@ -384,7 +384,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Display_Window_Status",
@@ -411,7 +411,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Initiate_Continuous",
@@ -782,7 +782,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Status",
@@ -996,7 +996,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Protection_Status",
@@ -2490,7 +2490,12 @@
           "value"
         ],
         "arg": {
-          "kind": "integer"
+          "kind": "enum",
+          "values": [
+            "ONCE",
+            "AUTO"
+          ],
+          "default": "AUTO"
         },
         "returns": null,
         "mqtt": {
@@ -3438,7 +3443,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Calibrate_Status",
@@ -3492,7 +3497,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Display_Window_Status",
@@ -3519,7 +3524,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Initiate_Continuous",
@@ -3928,7 +3933,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Output_Status",
@@ -4142,7 +4147,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Power/Get_Source_Current_Protection_Status",
@@ -4988,7 +4993,7 @@
         "command": "Set_S1_Levels",
         "verb": "rig",
         "description": "Set S1 Levels",
-        "scpi": "INST:NSEL 1;VOLT <volt>;CURR <curr>",
+        "scpi": "VOLT <volt>;:CURR <curr>",
         "subsystem": "General",
         "group": "Configuration (Volts/Amps)",
         "args": [
@@ -5588,69 +5593,6 @@
         },
         "unverified": true
       },
-      "S1_OFF": {
-        "command": "S1_OFF",
-        "verb": "do",
-        "description": "S1 OFF",
-        "scpi": "INST:NSEL 1;OUTP OFF",
-        "subsystem": "General",
-        "group": "Individual Output Control",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/S1_OFF",
-          "direction": "in",
-          "payload_format": {
-            "command": "S1_OFF"
-          }
-        },
-        "unverified": true
-      },
-      "S1_ON": {
-        "command": "S1_ON",
-        "verb": "do",
-        "description": "S1 ON",
-        "scpi": "INST:NSEL 1;OUTP ON",
-        "subsystem": "General",
-        "group": "Individual Output Control",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/S1_ON",
-          "direction": "in",
-          "payload_format": {
-            "command": "S1_ON"
-          }
-        },
-        "unverified": true
-      },
-      "Select_Channel": {
-        "command": "Select_Channel",
-        "verb": "do",
-        "description": "Select Channel",
-        "scpi": "INST:NSEL <chan>",
-        "subsystem": "INSTrument",
-        "group": "Channel Selection",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Power/Select_Channel",
-          "direction": "in",
-          "payload_format": {
-            "command": "Select_Channel"
-          }
-        },
-        "unverified": true
-      },
       "Do_List_Count": {
         "command": "Do_List_Count",
         "verb": "do",
@@ -5777,6 +5719,27 @@
         },
         "unverified": false
       },
+      "S1_OFF": {
+        "command": "S1_OFF",
+        "verb": "do",
+        "description": "S1 OFF",
+        "scpi": "OUTP OFF",
+        "subsystem": "General",
+        "group": "Individual Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/S1_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "S1_OFF"
+          }
+        },
+        "unverified": true
+      },
       "Output_ON": {
         "command": "Output_ON",
         "verb": "do",
@@ -5797,6 +5760,27 @@
           }
         },
         "unverified": false
+      },
+      "S1_ON": {
+        "command": "S1_ON",
+        "verb": "do",
+        "description": "S1 ON",
+        "scpi": "OUTP ON",
+        "subsystem": "General",
+        "group": "Individual Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/S1_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "S1_ON"
+          }
+        },
+        "unverified": true
       },
       "Do_Output_Protection": {
         "command": "Do_Output_Protection",
@@ -5865,8 +5849,8 @@
         "command": "Do_Protection_Clear",
         "verb": "do",
         "description": "The Effect of Optional Headers",
-        "scpi": "PROTECTION:CLEAR",
-        "scpi_fast": "PROT:CLE",
+        "scpi": "OUTPut:PROTection:CLEar",
+        "scpi_fast": "OUTP:PROT:CLE",
         "subsystem": "PROTECTION",
         "group": "PROTECTION",
         "args": [],
