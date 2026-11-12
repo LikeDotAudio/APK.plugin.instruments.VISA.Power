@@ -14,6 +14,20 @@
       "subsystem": "Common",
       "unverified": true
     },
+    "Set_Psc_0": {
+      "scpi": "*PSC 0",
+      "description": "Set_Psc → 0. Set psc",
+      "subsystem": "Common",
+      "unverified": true,
+      "notes": "Individual of selector Set_Psc = 0 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Psc_1": {
+      "scpi": "*PSC 1",
+      "description": "Set_Psc → 1. Set psc",
+      "subsystem": "Common",
+      "unverified": true,
+      "notes": "Individual of selector Set_Psc = 1 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Psc": {
       "scpi": "*PSC <value>",
       "description": "Set psc",
@@ -84,6 +98,20 @@
       "subsystem": "CAL",
       "unverified": true
     },
+    "Set_Calibrate_Status_OFF": {
+      "scpi": "CAL:STAT OFF",
+      "description": "Set_Calibrate_Status → OFF. RST Value OFF",
+      "subsystem": "CAL",
+      "unverified": true,
+      "notes": "Individual of selector Set_Calibrate_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Calibrate_Status_ON": {
+      "scpi": "CAL:STAT ON",
+      "description": "Set_Calibrate_Status → ON. RST Value OFF",
+      "subsystem": "CAL",
+      "unverified": true,
+      "notes": "Individual of selector Set_Calibrate_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Current": {
       "scpi": "CURR <value>",
       "description": "Current limit.",
@@ -128,6 +156,20 @@
       "subsystem": "DISP",
       "unverified": true
     },
+    "Set_Display_Window_Status_OFF": {
+      "scpi": "DISP:WIND:STAT OFF",
+      "description": "Set_Display_Window_Status → OFF. This command turns the power module optional front panel voltage and current displays on and off",
+      "subsystem": "DISP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Display_Window_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Display_Window_Status_ON": {
+      "scpi": "DISP:WIND:STAT ON",
+      "description": "Set_Display_Window_Status → ON. This command turns the power module optional front panel voltage and current displays on and off",
+      "subsystem": "DISP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Display_Window_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Initiate_Continuous": {
       "scpi": "INIT:CONT <value>",
       "description": "Controlling Triggers",
@@ -143,6 +185,20 @@
       ],
       "subsystem": "INIT",
       "unverified": true
+    },
+    "Set_Initiate_Continuous_OFF": {
+      "scpi": "INIT:CONT OFF",
+      "description": "Set_Initiate_Continuous → OFF. Controlling Triggers",
+      "subsystem": "INIT",
+      "unverified": true,
+      "notes": "Individual of selector Set_Initiate_Continuous = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Initiate_Continuous_ON": {
+      "scpi": "INIT:CONT ON",
+      "description": "Set_Initiate_Continuous → ON. Controlling Triggers",
+      "subsystem": "INIT",
+      "unverified": true,
+      "notes": "Individual of selector Set_Initiate_Continuous = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_List_Dwel_Points": {
       "scpi": "LIST:DWEL:POIN <value>",
@@ -173,6 +229,22 @@
       "subsystem": "OUTPut",
       "notes": "`OUTP?` answers 1 or 0, so the panel's toggle is keyed 1/0 and sends what it reads back. Verified on the 66101A at gpib7,30,0, 2026-08-08."
     },
+    "Set_Output_OFF": {
+      "scpi": "OUTP OFF",
+      "description": "Set_Output → OFF. Output on or off.",
+      "subsystem": "OUTPut",
+      "group": "Output Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_ON": {
+      "scpi": "OUTP ON",
+      "description": "Set_Output → ON. Output on or off.",
+      "subsystem": "OUTPut",
+      "group": "Output Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Dfi_Link": {
       "scpi": "OUTP:DFI:LINK \"<value>\"",
       "description": "This command specifies which events within the power module are linked to DFI source events",
@@ -199,6 +271,76 @@
       "unverified": true,
       "notes": "String data, sent quoted: `OUTP:DFI:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 40, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
+    "Set_Output_Dfi_Link_CC": {
+      "scpi": "OUTP:DFI:LINK \"CC\"",
+      "description": "Set_Output_Dfi_Link → CC. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = CC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_CV": {
+      "scpi": "OUTP:DFI:LINK \"CV\"",
+      "description": "Set_Output_Dfi_Link → CV. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = CV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_ESB": {
+      "scpi": "OUTP:DFI:LINK \"ESB\"",
+      "description": "Set_Output_Dfi_Link → ESB. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = ESB — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_MAV": {
+      "scpi": "OUTP:DFI:LINK \"MAV\"",
+      "description": "Set_Output_Dfi_Link → MAV. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = MAV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_OFF": {
+      "scpi": "OUTP:DFI:LINK \"OFF\"",
+      "description": "Set_Output_Dfi_Link → OFF. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_OPC": {
+      "scpi": "OUTP:DFI:LINK \"OPC\"",
+      "description": "Set_Output_Dfi_Link → OPC. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = OPC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_OPER": {
+      "scpi": "OUTP:DFI:LINK \"OPER\"",
+      "description": "Set_Output_Dfi_Link → OPER. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = OPER — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_QUES": {
+      "scpi": "OUTP:DFI:LINK \"QUES\"",
+      "description": "Set_Output_Dfi_Link → QUES. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = QUES — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_RQS": {
+      "scpi": "OUTP:DFI:LINK \"RQS\"",
+      "description": "Set_Output_Dfi_Link → RQS. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = RQS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Link_SUM3": {
+      "scpi": "OUTP:DFI:LINK \"SUM3\"",
+      "description": "Set_Output_Dfi_Link → SUM3. This command specifies which events within the power module are linked to DFI source events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Link = SUM3 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Dfi_Source": {
       "scpi": "OUTP:DFI:SOUR <value>",
       "description": "This command selects the source for DFI events",
@@ -215,6 +357,13 @@
       "subsystem": "OUTP",
       "unverified": true
     },
+    "Set_Output_Dfi_Source_LINK": {
+      "scpi": "OUTP:DFI:SOUR LINK",
+      "description": "Set_Output_Dfi_Source → LINK. This command selects the source for DFI events",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Source = LINK — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Dfi_Status": {
       "scpi": "OUTP:DFI:STAT <value>",
       "description": "This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane",
@@ -230,6 +379,20 @@
       ],
       "subsystem": "OUTP",
       "unverified": true
+    },
+    "Set_Output_Dfi_Status_OFF": {
+      "scpi": "OUTP:DFI:STAT OFF",
+      "description": "Set_Output_Dfi_Status → OFF. This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Dfi_Status_ON": {
+      "scpi": "OUTP:DFI:STAT ON",
+      "description": "Set_Output_Dfi_Status → ON. This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Dfi_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Output_Protection_Delay": {
       "scpi": "OUTP:PROT:DEL <value>",
@@ -261,6 +424,20 @@
       "unverified": true,
       "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
+    "Set_Output_Relay_OFF": {
+      "scpi": "OUTP:REL OFF",
+      "description": "Set_Output_Relay → OFF. Controlling the Output State",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Relay = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Relay_ON": {
+      "scpi": "OUTP:REL ON",
+      "description": "Set_Output_Relay → ON. Controlling the Output State",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Relay = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Relay_Polarity": {
       "scpi": "OUTP:REL:POL <value>",
       "description": "This command is valid only if the power module is configured for the optional relay connector",
@@ -279,6 +456,20 @@
       "unverified": true,
       "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
+    "Set_Output_Relay_Polarity_NORM": {
+      "scpi": "OUTP:REL:POL NORM",
+      "description": "Set_Output_Relay_Polarity → NORM. This command is valid only if the power module is configured for the optional relay connector",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Relay_Polarity = NORM — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Relay_Polarity_REV": {
+      "scpi": "OUTP:REL:POL REV",
+      "description": "Set_Output_Relay_Polarity → REV. This command is valid only if the power module is configured for the optional relay connector",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Relay_Polarity = REV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Relay_Status": {
       "scpi": "OUTP:REL:STAT <value>",
       "description": "This command is valid only if the power module is configured for the optional relay connector",
@@ -296,6 +487,20 @@
       "unverified": true,
       "notes": "Valid only with the optional relay connector: a module without it answers -241 \"Hardware missing\" (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 41; seen on the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
+    "Set_Output_Relay_Status_OFF": {
+      "scpi": "OUTP:REL:STAT OFF",
+      "description": "Set_Output_Relay_Status → OFF. This command is valid only if the power module is configured for the optional relay connector",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Relay_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Relay_Status_ON": {
+      "scpi": "OUTP:REL:STAT ON",
+      "description": "Set_Output_Relay_Status → ON. This command is valid only if the power module is configured for the optional relay connector",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Relay_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Status": {
       "scpi": "OUTP:STAT <value>",
       "description": "If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled",
@@ -311,6 +516,20 @@
       ],
       "subsystem": "OUTP",
       "unverified": true
+    },
+    "Set_Output_Status_OFF": {
+      "scpi": "OUTP:STAT OFF",
+      "description": "Set_Output_Status → OFF. If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Status_ON": {
+      "scpi": "OUTP:STAT ON",
+      "description": "Set_Output_Status → ON. If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Output_Ttltrg_Link": {
       "scpi": "OUTP:TTLT:LINK \"<value>\"",
@@ -343,6 +562,111 @@
       "unverified": true,
       "notes": "String data, sent quoted: `OUTP:TTLT:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 42, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
+    "Set_Output_Ttltrg_Link_CC": {
+      "scpi": "OUTP:TTLT:LINK \"CC\"",
+      "description": "Set_Output_Ttltrg_Link → CC. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = CC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_CV": {
+      "scpi": "OUTP:TTLT:LINK \"CV\"",
+      "description": "Set_Output_Ttltrg_Link → CV. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = CV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_ESB": {
+      "scpi": "OUTP:TTLT:LINK \"ESB\"",
+      "description": "Set_Output_Ttltrg_Link → ESB. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = ESB — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_LSC": {
+      "scpi": "OUTP:TTLT:LINK \"LSC\"",
+      "description": "Set_Output_Ttltrg_Link → LSC. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = LSC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_MAV": {
+      "scpi": "OUTP:TTLT:LINK \"MAV\"",
+      "description": "Set_Output_Ttltrg_Link → MAV. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = MAV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_OFF": {
+      "scpi": "OUTP:TTLT:LINK \"OFF\"",
+      "description": "Set_Output_Ttltrg_Link → OFF. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_OPC": {
+      "scpi": "OUTP:TTLT:LINK \"OPC\"",
+      "description": "Set_Output_Ttltrg_Link → OPC. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = OPC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_OPER": {
+      "scpi": "OUTP:TTLT:LINK \"OPER\"",
+      "description": "Set_Output_Ttltrg_Link → OPER. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = OPER — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_QUES": {
+      "scpi": "OUTP:TTLT:LINK \"QUES\"",
+      "description": "Set_Output_Ttltrg_Link → QUES. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = QUES — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_RQS": {
+      "scpi": "OUTP:TTLT:LINK \"RQS\"",
+      "description": "Set_Output_Ttltrg_Link → RQS. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = RQS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_RTG": {
+      "scpi": "OUTP:TTLT:LINK \"RTG\"",
+      "description": "Set_Output_Ttltrg_Link → RTG. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = RTG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_STC": {
+      "scpi": "OUTP:TTLT:LINK \"STC\"",
+      "description": "Set_Output_Ttltrg_Link → STC. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = STC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_STS": {
+      "scpi": "OUTP:TTLT:LINK \"STS\"",
+      "description": "Set_Output_Ttltrg_Link → STS. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = STS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_SUM3": {
+      "scpi": "OUTP:TTLT:LINK \"SUM3\"",
+      "description": "Set_Output_Ttltrg_Link → SUM3. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = SUM3 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Link_TDC": {
+      "scpi": "OUTP:TTLT:LINK \"TDC\"",
+      "description": "Set_Output_Ttltrg_Link → TDC. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Link = TDC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Ttltrg_Source": {
       "scpi": "OUTP:TTLT:SOUR <value>",
       "description": "Controlling Triggers",
@@ -362,6 +686,34 @@
       "subsystem": "OUTP",
       "unverified": true
     },
+    "Set_Output_Ttltrg_Source_BUS": {
+      "scpi": "OUTP:TTLT:SOUR BUS",
+      "description": "Set_Output_Ttltrg_Source → BUS. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Source = BUS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Source_EXT": {
+      "scpi": "OUTP:TTLT:SOUR EXT",
+      "description": "Set_Output_Ttltrg_Source → EXT. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Source_HOLD": {
+      "scpi": "OUTP:TTLT:SOUR HOLD",
+      "description": "Set_Output_Ttltrg_Source → HOLD. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Source = HOLD — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Source_LINK": {
+      "scpi": "OUTP:TTLT:SOUR LINK",
+      "description": "Set_Output_Ttltrg_Source → LINK. Controlling Triggers",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Source = LINK — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Ttltrg_Status": {
       "scpi": "OUTP:TTLT:STAT <value>",
       "description": "This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe",
@@ -377,6 +729,20 @@
       ],
       "subsystem": "OUTP",
       "unverified": true
+    },
+    "Set_Output_Ttltrg_Status_OFF": {
+      "scpi": "OUTP:TTLT:STAT OFF",
+      "description": "Set_Output_Ttltrg_Status → OFF. This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Ttltrg_Status_ON": {
+      "scpi": "OUTP:TTLT:STAT ON",
+      "description": "Set_Output_Ttltrg_Status → ON. This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Ttltrg_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Source_Current_Level_Immediate_Amplitude": {
       "scpi": "SOUR:CURR:LEV:IMM:AMPL <value>",
@@ -424,6 +790,20 @@
       "unverified": true,
       "notes": "Arg from the manual: [SOURce:]LIST:STEP {ONCE|AUTO} (5959-3362 Ch. 4); the 66104A answers AUTO to LIST:STEP? on the bench."
     },
+    "Set_Source_List_Step_AUTO": {
+      "scpi": "SOUR:LIST:STEP AUTO",
+      "description": "Set_Source_List_Step → AUTO. In either mode, triggers that occur during a dwell interval are ignored",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_List_Step = AUTO — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Source_List_Step_ONCE": {
+      "scpi": "SOUR:LIST:STEP ONCE",
+      "description": "Set_Source_List_Step → ONCE. In either mode, triggers that occur during a dwell interval are ignored",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_List_Step = ONCE — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Source_Voltage_Level_Trigger_Amplitude": {
       "scpi": "SOUR:VOLT:LEV:TRIG:AMPL <value>",
       "description": "Set source voltage level trigger amplitude",
@@ -470,6 +850,22 @@
       "subsystem": "SOUR",
       "unverified": true
     },
+    "Set_Source_Current_Mode_FIX": {
+      "scpi": "SOURce:CURRent:MODE FIX",
+      "scpiFast": "SOUR:CURR:MODE FIX",
+      "description": "Set_Source_Current_Mode → FIX. LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_Current_Mode = FIX — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Source_Current_Mode_LIST": {
+      "scpi": "SOURce:CURRent:MODE LIST",
+      "scpiFast": "SOUR:CURR:MODE LIST",
+      "description": "Set_Source_Current_Mode → LIST. LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_Current_Mode = LIST — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Source_Current_Protection_Status": {
       "scpi": "SOURce:CURRent:PROTection:STATe <value>",
       "scpiFast": "SOUR:CURR:PROT:STAT <value>",
@@ -486,6 +882,22 @@
       ],
       "subsystem": "SOUR",
       "unverified": true
+    },
+    "Set_Source_Current_Protection_Status_OFF": {
+      "scpi": "SOURce:CURRent:PROTection:STATe OFF",
+      "scpiFast": "SOUR:CURR:PROT:STAT OFF",
+      "description": "Set_Source_Current_Protection_Status → OFF. This command enables or disables the power module overcurrent (OC) protection function",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_Current_Protection_Status = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Source_Current_Protection_Status_ON": {
+      "scpi": "SOURce:CURRent:PROTection:STATe ON",
+      "scpiFast": "SOUR:CURR:PROT:STAT ON",
+      "description": "Set_Source_Current_Protection_Status → ON. This command enables or disables the power module overcurrent (OC) protection function",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_Current_Protection_Status = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Source_List_Count": {
       "scpi": "SOURce:LIST:COUNt <value>",
@@ -530,6 +942,22 @@
       ],
       "subsystem": "SOUR",
       "unverified": true
+    },
+    "Set_Source_Voltage_Mode_FIX": {
+      "scpi": "SOURce:VOLTage:MODE FIX",
+      "scpiFast": "SOUR:VOLT:MODE FIX",
+      "description": "Set_Source_Voltage_Mode → FIX. LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_Voltage_Mode = FIX — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Source_Voltage_Mode_LIST": {
+      "scpi": "SOURce:VOLTage:MODE LIST",
+      "scpiFast": "SOUR:VOLT:MODE LIST",
+      "description": "Set_Source_Voltage_Mode → LIST. LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list",
+      "subsystem": "SOUR",
+      "unverified": true,
+      "notes": "Individual of selector Set_Source_Voltage_Mode = LIST — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Status_Operation": {
       "scpi": "STAT:OPER <value>",
@@ -685,6 +1113,111 @@
       "unverified": true,
       "notes": "String data, sent quoted: `TRIG:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 47, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
     },
+    "Set_Trigger_Link_CC": {
+      "scpi": "TRIG:LINK \"CC\"",
+      "description": "Set_Trigger_Link → CC. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = CC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_CV": {
+      "scpi": "TRIG:LINK \"CV\"",
+      "description": "Set_Trigger_Link → CV. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = CV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_ESB": {
+      "scpi": "TRIG:LINK \"ESB\"",
+      "description": "Set_Trigger_Link → ESB. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = ESB — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_LSC": {
+      "scpi": "TRIG:LINK \"LSC\"",
+      "description": "Set_Trigger_Link → LSC. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = LSC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_MAV": {
+      "scpi": "TRIG:LINK \"MAV\"",
+      "description": "Set_Trigger_Link → MAV. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = MAV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_OFF": {
+      "scpi": "TRIG:LINK \"OFF\"",
+      "description": "Set_Trigger_Link → OFF. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_OPC": {
+      "scpi": "TRIG:LINK \"OPC\"",
+      "description": "Set_Trigger_Link → OPC. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = OPC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_OPER": {
+      "scpi": "TRIG:LINK \"OPER\"",
+      "description": "Set_Trigger_Link → OPER. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = OPER — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_QUES": {
+      "scpi": "TRIG:LINK \"QUES\"",
+      "description": "Set_Trigger_Link → QUES. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = QUES — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_RQS": {
+      "scpi": "TRIG:LINK \"RQS\"",
+      "description": "Set_Trigger_Link → RQS. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = RQS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_RTG": {
+      "scpi": "TRIG:LINK \"RTG\"",
+      "description": "Set_Trigger_Link → RTG. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = RTG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_STC": {
+      "scpi": "TRIG:LINK \"STC\"",
+      "description": "Set_Trigger_Link → STC. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = STC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_STS": {
+      "scpi": "TRIG:LINK \"STS\"",
+      "description": "Set_Trigger_Link → STS. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = STS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_SUM3": {
+      "scpi": "TRIG:LINK \"SUM3\"",
+      "description": "Set_Trigger_Link → SUM3. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = SUM3 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Link_TDC": {
+      "scpi": "TRIG:LINK \"TDC\"",
+      "description": "Set_Trigger_Link → TDC. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Link = TDC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Trigger_Source": {
       "scpi": "TRIG:SOUR <value>",
       "description": "Controlling Triggers",
@@ -704,6 +1237,41 @@
       ],
       "subsystem": "TRIG",
       "unverified": true
+    },
+    "Set_Trigger_Source_BUS": {
+      "scpi": "TRIG:SOUR BUS",
+      "description": "Set_Trigger_Source → BUS. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = BUS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Source_EXT": {
+      "scpi": "TRIG:SOUR EXT",
+      "description": "Set_Trigger_Source → EXT. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Source_HOLD": {
+      "scpi": "TRIG:SOUR HOLD",
+      "description": "Set_Trigger_Source → HOLD. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = HOLD — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Source_LINK": {
+      "scpi": "TRIG:SOUR LINK",
+      "description": "Set_Trigger_Source → LINK. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = LINK — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Source_TTLT": {
+      "scpi": "TRIG:SOUR TTLT",
+      "description": "Set_Trigger_Source → TTLT. Controlling Triggers",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = TTLT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Trigger_Start_Link": {
       "scpi": "TRIG:STAR:LINK \"<value>\"",
@@ -735,6 +1303,111 @@
       "subsystem": "TRIG",
       "unverified": true,
       "notes": "String data, sent quoted: `TRIG:STAR:LINK OFF` is -148 \"Character data not allowed\", `\"OFF\"` is taken (HP 66lxxA MPS Programming Guide 5959-3362 (https://xdevs.com/doc/HP_Agilent_Keysight/661xxA_programming.pdf) p. 47, Table 3-1; the 66102A at gpib7,30,1 (Dev730-1), 2026-11-06)."
+    },
+    "Set_Trigger_Start_Link_CC": {
+      "scpi": "TRIG:STAR:LINK \"CC\"",
+      "description": "Set_Trigger_Start_Link → CC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = CC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_CV": {
+      "scpi": "TRIG:STAR:LINK \"CV\"",
+      "description": "Set_Trigger_Start_Link → CV. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = CV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_ESB": {
+      "scpi": "TRIG:STAR:LINK \"ESB\"",
+      "description": "Set_Trigger_Start_Link → ESB. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = ESB — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_LSC": {
+      "scpi": "TRIG:STAR:LINK \"LSC\"",
+      "description": "Set_Trigger_Start_Link → LSC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = LSC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_MAV": {
+      "scpi": "TRIG:STAR:LINK \"MAV\"",
+      "description": "Set_Trigger_Start_Link → MAV. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = MAV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_OFF": {
+      "scpi": "TRIG:STAR:LINK \"OFF\"",
+      "description": "Set_Trigger_Start_Link → OFF. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_OPC": {
+      "scpi": "TRIG:STAR:LINK \"OPC\"",
+      "description": "Set_Trigger_Start_Link → OPC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = OPC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_OPER": {
+      "scpi": "TRIG:STAR:LINK \"OPER\"",
+      "description": "Set_Trigger_Start_Link → OPER. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = OPER — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_QUES": {
+      "scpi": "TRIG:STAR:LINK \"QUES\"",
+      "description": "Set_Trigger_Start_Link → QUES. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = QUES — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_RQS": {
+      "scpi": "TRIG:STAR:LINK \"RQS\"",
+      "description": "Set_Trigger_Start_Link → RQS. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = RQS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_RTG": {
+      "scpi": "TRIG:STAR:LINK \"RTG\"",
+      "description": "Set_Trigger_Start_Link → RTG. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = RTG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_STC": {
+      "scpi": "TRIG:STAR:LINK \"STC\"",
+      "description": "Set_Trigger_Start_Link → STC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = STC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_STS": {
+      "scpi": "TRIG:STAR:LINK \"STS\"",
+      "description": "Set_Trigger_Start_Link → STS. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = STS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_SUM3": {
+      "scpi": "TRIG:STAR:LINK \"SUM3\"",
+      "description": "Set_Trigger_Start_Link → SUM3. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = SUM3 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Link_TDC": {
+      "scpi": "TRIG:STAR:LINK \"TDC\"",
+      "description": "Set_Trigger_Start_Link → TDC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Link = TDC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Trigger_Start_Delay": {
       "scpi": "TRIGger:STARt:DELay <value>",
@@ -770,6 +1443,46 @@
       ],
       "subsystem": "TRIG",
       "unverified": true
+    },
+    "Set_Trigger_Start_Source_BUS": {
+      "scpi": "TRIGger:STARt:SOURce BUS",
+      "scpiFast": "TRIG:STAR:SOUR BUS",
+      "description": "Set_Trigger_Start_Source → BUS. This command selects the power module input trigger source as follows",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Source = BUS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Source_EXT": {
+      "scpi": "TRIGger:STARt:SOURce EXT",
+      "scpiFast": "TRIG:STAR:SOUR EXT",
+      "description": "Set_Trigger_Start_Source → EXT. This command selects the power module input trigger source as follows",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Source_HOLD": {
+      "scpi": "TRIGger:STARt:SOURce HOLD",
+      "scpiFast": "TRIG:STAR:SOUR HOLD",
+      "description": "Set_Trigger_Start_Source → HOLD. This command selects the power module input trigger source as follows",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Source = HOLD — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Source_LINK": {
+      "scpi": "TRIGger:STARt:SOURce LINK",
+      "scpiFast": "TRIG:STAR:SOUR LINK",
+      "description": "Set_Trigger_Start_Source → LINK. This command selects the power module input trigger source as follows",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Source = LINK — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Start_Source_TTLT": {
+      "scpi": "TRIGger:STARt:SOURce TTLT",
+      "scpiFast": "TRIG:STAR:SOUR TTLT",
+      "description": "Set_Trigger_Start_Source → TTLT. This command selects the power module input trigger source as follows",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Start_Source = TTLT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Voltage": {
       "scpi": "VOLT <value>",

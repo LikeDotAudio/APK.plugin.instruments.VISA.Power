@@ -4,7 +4,7 @@
 
 Generated from the `.komand` table by `apkaudio-komand build-trees`. Edit the table, not this file.
 
-**180 commands** — SET 48 · RIG 4 · NAB 67 · DO 61 · 167 unverified (92%)
+**280 commands** — SET 148 · RIG 4 · NAB 67 · DO 61 · 267 unverified (95%)
 
 `SET` one argument · `RIG` several applied together · `NAB` a query · `DO` a parameterless action. **†** marks a command swept out of a manual and never sent to the instrument.
 
@@ -31,6 +31,8 @@ Several statements in one message, so they hang off no single branch. Every stat
 
 - `CURR` — **SET** `Set_Current` · `<value>` · args: `value` · numeric (A)<br>Current limit.
 - `OUTP` — **SET** `Set_Output` · `<state>` · args: `state` · bool: `OFF` | `ON`<br>Output on or off.
+- `OUTP` — **SET** `Set_Output_OFF` · `OFF` · †<br>Set_Output → OFF. Output on or off.
+- `OUTP` — **SET** `Set_Output_ON` · `ON` · †<br>Set_Output → ON. Output on or off.
 - `VOLT` — **SET** `Set_Voltage` · `<value>` · args: `value` · numeric (V)<br>Output voltage setpoint.
 - `OUTP` — **DO** `Output_OFF` · `OFF`<br>Output off.
 - `OUTP` — **DO** `Output_ON` · `ON`<br>Output on.
@@ -38,6 +40,8 @@ Several statements in one message, so they hang off no single branch. Every stat
 - `OUTP` — **DO** `S1_ON` · `ON` · †
 - **`CAL`**
   - `STAT` — **SET** `Set_Calibrate_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>RST Value OFF
+  - `STAT` — **SET** `Set_Calibrate_Status_OFF` · `OFF` · †<br>Set_Calibrate_Status → OFF. RST Value OFF
+  - `STAT` — **SET** `Set_Calibrate_Status_ON` · `ON` · †<br>Set_Calibrate_Status → ON. RST Value OFF
   - `AUT` — **DO** `Do_Calibrate_Aut` · †
   - `CURR` — **DO** `Do_Calibrate_Current` · †
   - `PASS` — **DO** `Do_Calibrate_Passcode` · †<br>If the password is set to 0, password protection is removed and the ability to enter the calibration mode is unrestricted
@@ -70,11 +74,15 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `STAT` — **DO** `Do_Display_Status` · †
   - **`WIND`**
     - `STAT` — **SET** `Set_Display_Window_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command turns the power module optional front panel voltage and current displays on and off
+    - `STAT` — **SET** `Set_Display_Window_Status_OFF` · `OFF` · †<br>Set_Display_Window_Status → OFF. This command turns the power module optional front panel voltage and current displays on and off
+    - `STAT` — **SET** `Set_Display_Window_Status_ON` · `ON` · †<br>Set_Display_Window_Status → ON. This command turns the power module optional front panel voltage and current displays on and off
 - **`DISPlay`**
   - **`WINDow`**
     - `STAT?` — **NAB** `Get_Display_Window_Status` · → BOOL · †<br>This command turns the power module optional front panel voltage and current displays on and off
 - **`INIT`**
   - `CONT` — **SET** `Set_Initiate_Continuous` · `<value>` · args: `value` · bool: `OFF` | `ON` · †
+  - `CONT` — **SET** `Set_Initiate_Continuous_OFF` · `OFF` · †<br>Set_Initiate_Continuous → OFF. Set initiate continuous
+  - `CONT` — **SET** `Set_Initiate_Continuous_ON` · `ON` · †<br>Set_Initiate_Continuous → ON. Set initiate continuous
   - `IMM` — **DO** `Do_Initiate_Immediate` · †<br>subsequent trigger action
 - **`INITiate`**
   - `CONTinuous?` — **NAB** `Get_Initiate_Continuous` · → BOOL · †
@@ -92,25 +100,67 @@ Several statements in one message, so they hang off no single branch. Every stat
     - `POIN?` — **NAB** `Get_List_Voltage_Points` · → NR1 · †
 - **`OUTP`**
   - `REL` — **SET** `Set_Output_Relay` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Output Subsystem
+  - `REL` — **SET** `Set_Output_Relay_OFF` · `OFF` · †<br>Set_Output_Relay → OFF. Output Subsystem
+  - `REL` — **SET** `Set_Output_Relay_ON` · `ON` · †<br>Set_Output_Relay → ON. Output Subsystem
   - `STAT` — **SET** `Set_Output_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled
+  - `STAT` — **SET** `Set_Output_Status_OFF` · `OFF` · †<br>Set_Output_Status → OFF. If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled
+  - `STAT` — **SET** `Set_Output_Status_ON` · `ON` · †<br>Set_Output_Status → ON. If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled
   - `REL?` — **NAB** `Get_Output_Relay` · → BOOL · †<br>Output Subsystem
   - `PROT` — **DO** `Do_Output_Protection` · †
   - `TTLT` — **DO** `Do_Output_Ttltrg` · †
   - **`DFI`**
     - `LINK` — **SET** `Set_Output_Dfi_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `SUM3` · †<br>This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_CC` · `"CC"` · †<br>Set_Output_Dfi_Link → CC. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_CV` · `"CV"` · †<br>Set_Output_Dfi_Link → CV. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_ESB` · `"ESB"` · †<br>Set_Output_Dfi_Link → ESB. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_MAV` · `"MAV"` · †<br>Set_Output_Dfi_Link → MAV. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_OFF` · `"OFF"` · †<br>Set_Output_Dfi_Link → OFF. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_OPC` · `"OPC"` · †<br>Set_Output_Dfi_Link → OPC. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_OPER` · `"OPER"` · †<br>Set_Output_Dfi_Link → OPER. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_QUES` · `"QUES"` · †<br>Set_Output_Dfi_Link → QUES. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_RQS` · `"RQS"` · †<br>Set_Output_Dfi_Link → RQS. This command specifies which events within the power module are linked to DFI source events
+    - `LINK` — **SET** `Set_Output_Dfi_Link_SUM3` · `"SUM3"` · †<br>Set_Output_Dfi_Link → SUM3. This command specifies which events within the power module are linked to DFI source events
     - `SOUR` — **SET** `Set_Output_Dfi_Source` · `<value>` · args: `value` · enum: `LINK` · †<br>This command selects the source for DFI events
+    - `SOUR` — **SET** `Set_Output_Dfi_Source_LINK` · `LINK` · †<br>Set_Output_Dfi_Source → LINK. This command selects the source for DFI events
     - `STAT` — **SET** `Set_Output_Dfi_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane
+    - `STAT` — **SET** `Set_Output_Dfi_Status_OFF` · `OFF` · †<br>Set_Output_Dfi_Status → OFF. This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane
+    - `STAT` — **SET** `Set_Output_Dfi_Status_ON` · `ON` · †<br>Set_Output_Dfi_Status → ON. This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane
   - **`PROT`**
     - `DEL` — **SET** `Set_Output_Protection_Delay` · `<value>` · args: `value` · numeric (s) · †
     - `CLE` — **DO** `Clear_Protection` · †
   - **`REL`**
     - `POL` — **SET** `Set_Output_Relay_Polarity` · `<value>` · args: `value` · enum: `NORM` | `REV` · †<br>This command is valid only if the power module is configured for the optional relay connector
+    - `POL` — **SET** `Set_Output_Relay_Polarity_NORM` · `NORM` · †<br>Set_Output_Relay_Polarity → NORM. This command is valid only if the power module is configured for the optional relay connector
+    - `POL` — **SET** `Set_Output_Relay_Polarity_REV` · `REV` · †<br>Set_Output_Relay_Polarity → REV. This command is valid only if the power module is configured for the optional relay connector
     - `STAT` — **SET** `Set_Output_Relay_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command is valid only if the power module is configured for the optional relay connector
+    - `STAT` — **SET** `Set_Output_Relay_Status_OFF` · `OFF` · †<br>Set_Output_Relay_Status → OFF. This command is valid only if the power module is configured for the optional relay connector
+    - `STAT` — **SET** `Set_Output_Relay_Status_ON` · `ON` · †<br>Set_Output_Relay_Status → ON. This command is valid only if the power module is configured for the optional relay connector
     - `STAT?` — **NAB** `Get_Output_Relay_Status` · → BOOL · †<br>This command is valid only if the power module is configured for the optional relay connector
   - **`TTLT`**
     - `LINK` — **SET** `Set_Output_Ttltrg_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `LSC` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `RTG` | `STC` | `STS` | `SUM3` | `TDC` · †
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_CC` · `"CC"` · †<br>Set_Output_Ttltrg_Link → CC. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_CV` · `"CV"` · †<br>Set_Output_Ttltrg_Link → CV. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_ESB` · `"ESB"` · †<br>Set_Output_Ttltrg_Link → ESB. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_LSC` · `"LSC"` · †<br>Set_Output_Ttltrg_Link → LSC. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_MAV` · `"MAV"` · †<br>Set_Output_Ttltrg_Link → MAV. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_OFF` · `"OFF"` · †<br>Set_Output_Ttltrg_Link → OFF. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_OPC` · `"OPC"` · †<br>Set_Output_Ttltrg_Link → OPC. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_OPER` · `"OPER"` · †<br>Set_Output_Ttltrg_Link → OPER. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_QUES` · `"QUES"` · †<br>Set_Output_Ttltrg_Link → QUES. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_RQS` · `"RQS"` · †<br>Set_Output_Ttltrg_Link → RQS. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_RTG` · `"RTG"` · †<br>Set_Output_Ttltrg_Link → RTG. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_STC` · `"STC"` · †<br>Set_Output_Ttltrg_Link → STC. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_STS` · `"STS"` · †<br>Set_Output_Ttltrg_Link → STS. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_SUM3` · `"SUM3"` · †<br>Set_Output_Ttltrg_Link → SUM3. Set output ttltrg link
+    - `LINK` — **SET** `Set_Output_Ttltrg_Link_TDC` · `"TDC"` · †<br>Set_Output_Ttltrg_Link → TDC. Set output ttltrg link
     - `SOUR` — **SET** `Set_Output_Ttltrg_Source` · `<value>` · args: `value` · enum: `BUS` | `EXT` | `LINK` | `HOLD` · †
+    - `SOUR` — **SET** `Set_Output_Ttltrg_Source_BUS` · `BUS` · †<br>Set_Output_Ttltrg_Source → BUS. Set output ttltrg source
+    - `SOUR` — **SET** `Set_Output_Ttltrg_Source_EXT` · `EXT` · †<br>Set_Output_Ttltrg_Source → EXT. Set output ttltrg source
+    - `SOUR` — **SET** `Set_Output_Ttltrg_Source_HOLD` · `HOLD` · †<br>Set_Output_Ttltrg_Source → HOLD. Set output ttltrg source
+    - `SOUR` — **SET** `Set_Output_Ttltrg_Source_LINK` · `LINK` · †<br>Set_Output_Ttltrg_Source → LINK. Set output ttltrg source
     - `STAT` — **SET** `Set_Output_Ttltrg_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe
+    - `STAT` — **SET** `Set_Output_Ttltrg_Status_OFF` · `OFF` · †<br>Set_Output_Ttltrg_Status → OFF. This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe
+    - `STAT` — **SET** `Set_Output_Ttltrg_Status_ON` · `ON` · †<br>Set_Output_Ttltrg_Status → ON. This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe
     - `LINK?` — **NAB** `Get_Output_Ttltrg_Link` · → STR · †
     - `SOUR?` — **NAB** `Get_Output_Ttltrg_Source` · → CRD · †
     - `STAT?` — **NAB** `Get_Output_Ttltrg_Status` · → BOOL · †<br>This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe
@@ -136,6 +186,8 @@ Several statements in one message, so they hang off no single branch. Every stat
         - `AMPL?` — **NAB** `Get_Source_Current_Level_Trigger_Amplitude` · → NR3 A · †
   - **`LIST`**
     - `STEP` — **SET** `Set_Source_List_Step` · `<value>` · args: `value` · enum: `ONCE` | `AUTO` · †<br>In either mode, triggers that occur during a dwell interval are ignored
+    - `STEP` — **SET** `Set_Source_List_Step_AUTO` · `AUTO` · †<br>Set_Source_List_Step → AUTO. In either mode, triggers that occur during a dwell interval are ignored
+    - `STEP` — **SET** `Set_Source_List_Step_ONCE` · `ONCE` · †<br>Set_Source_List_Step → ONCE. In either mode, triggers that occur during a dwell interval are ignored
     - `STEP?` — **NAB** `Get_Source_List_Step` · → CRD · †<br>In either mode, triggers that occur during a dwell interval are ignored
     - **`DWEL`**
       - `POIN?` — **NAB** `Get_Source_List_Dwel_Points` · → NR1 · †
@@ -158,6 +210,8 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `LIST` — **DO** `Do_Source_List` · †<br>Conventions
   - **`CURRent`**
     - `MODE` — **SET** `Set_Source_Current_Mode` · `<value>` · args: `value` · enum: `FIX` | `LIST` · †<br>LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
+    - `MODE` — **SET** `Set_Source_Current_Mode_FIX` · `FIX` · †<br>Set_Source_Current_Mode → FIX. LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
+    - `MODE` — **SET** `Set_Source_Current_Mode_LIST` · `LIST` · †<br>Set_Source_Current_Mode → LIST. LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
     - `MODE?` — **NAB** `Get_Source_Current_Mode` · → CRD · †<br>LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list
     - `LEVel` — **DO** `Do_Source_Current_Level` · †<br>This command directly programs the immediate current level of the power module
     - **`LEVel`**
@@ -165,6 +219,8 @@ Several statements in one message, so they hang off no single branch. Every stat
       - `TRIGgered` — **DO** `Do_Source_Currlev_Trigger` · †<br>RST Value _See Table 3-2_
     - **`PROTection`**
       - `STATe` — **SET** `Set_Source_Current_Protection_Status` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>This command enables or disables the power module overcurrent (OC) protection function
+      - `STATe` — **SET** `Set_Source_Current_Protection_Status_OFF` · `OFF` · †<br>Set_Source_Current_Protection_Status → OFF. This command enables or disables the power module overcurrent (OC) protection function
+      - `STATe` — **SET** `Set_Source_Current_Protection_Status_ON` · `ON` · †<br>Set_Source_Current_Protection_Status → ON. This command enables or disables the power module overcurrent (OC) protection function
       - `STATe?` — **NAB** `Get_Source_Current_Protection_Status` · → BOOL · †<br>This command enables or disables the power module overcurrent (OC) protection function
   - **`LIST`**
     - `COUNt` — **SET** `Set_Source_List_Count` · `<value>` · args: `value` · integer · †<br>This command sets the number of times that the list is executed before it is completed
@@ -178,6 +234,8 @@ Several statements in one message, so they hang off no single branch. Every stat
       - `POINts?` — **NAB** `Get_Source_List_Voltage_Points` · → NR1 · †<br>This query returns the number of points specified in LIST:VOLT
   - **`VOLTage`**
     - `MODE` — **SET** `Set_Source_Voltage_Mode` · `<value>` · args: `value` · enum: `FIX` | `LIST` · †<br>LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list
+    - `MODE` — **SET** `Set_Source_Voltage_Mode_FIX` · `FIX` · †<br>Set_Source_Voltage_Mode → FIX. LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list
+    - `MODE` — **SET** `Set_Source_Voltage_Mode_LIST` · `LIST` · †<br>Set_Source_Voltage_Mode → LIST. LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list
     - `MODE?` — **NAB** `Get_Source_Voltage_Mode` · → CRD V · †<br>LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list
     - `LEVel` — **DO** `Do_Source_Voltage_Level` · †<br>This command directly programs the immediate voltage level of the power module
     - `PROTection` — **DO** `Do_Source_Voltage_Protection` · †<br>- Status Reporting")
@@ -217,17 +275,57 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`TRIG`**
   - `DEL` — **SET** `Set_Trigger_Delay` · `<value>` · args: `value` · numeric (s) · †
   - `LINK` — **SET** `Set_Trigger_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `LSC` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `RTG` | `STC` | `STS` | `SUM3` | `TDC` · †
+  - `LINK` — **SET** `Set_Trigger_Link_CC` · `"CC"` · †<br>Set_Trigger_Link → CC. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_CV` · `"CV"` · †<br>Set_Trigger_Link → CV. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_ESB` · `"ESB"` · †<br>Set_Trigger_Link → ESB. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_LSC` · `"LSC"` · †<br>Set_Trigger_Link → LSC. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_MAV` · `"MAV"` · †<br>Set_Trigger_Link → MAV. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_OFF` · `"OFF"` · †<br>Set_Trigger_Link → OFF. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_OPC` · `"OPC"` · †<br>Set_Trigger_Link → OPC. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_OPER` · `"OPER"` · †<br>Set_Trigger_Link → OPER. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_QUES` · `"QUES"` · †<br>Set_Trigger_Link → QUES. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_RQS` · `"RQS"` · †<br>Set_Trigger_Link → RQS. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_RTG` · `"RTG"` · †<br>Set_Trigger_Link → RTG. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_STC` · `"STC"` · †<br>Set_Trigger_Link → STC. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_STS` · `"STS"` · †<br>Set_Trigger_Link → STS. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_SUM3` · `"SUM3"` · †<br>Set_Trigger_Link → SUM3. Set trigger link
+  - `LINK` — **SET** `Set_Trigger_Link_TDC` · `"TDC"` · †<br>Set_Trigger_Link → TDC. Set trigger link
   - `SOUR` — **SET** `Set_Trigger_Source` · `<value>` · args: `value` · enum: `BUS` | `EXT` | `HOLD` | `LINK` | `TTLT` · †
+  - `SOUR` — **SET** `Set_Trigger_Source_BUS` · `BUS` · †<br>Set_Trigger_Source → BUS. Set trigger source
+  - `SOUR` — **SET** `Set_Trigger_Source_EXT` · `EXT` · †<br>Set_Trigger_Source → EXT. Set trigger source
+  - `SOUR` — **SET** `Set_Trigger_Source_HOLD` · `HOLD` · †<br>Set_Trigger_Source → HOLD. Set trigger source
+  - `SOUR` — **SET** `Set_Trigger_Source_LINK` · `LINK` · †<br>Set_Trigger_Source → LINK. Set trigger source
+  - `SOUR` — **SET** `Set_Trigger_Source_TTLT` · `TTLT` · †<br>Set_Trigger_Source → TTLT. Set trigger source
   - `DEL?` — **NAB** `Get_Trigger_Delay` · → NR3 s · †
   - `LINK?` — **NAB** `Get_Trigger_Link` · → STR · †
   - `SOUR?` — **NAB** `Get_Trigger_Source` · → CRD · †
   - `IMM` — **DO** `Do_Trigger_Immediate` · †
   - **`STAR`**
     - `LINK` — **SET** `Set_Trigger_Start_Link` · `"<value>"` · args: `value` · enum: `OFF` | `CC` | `CV` | `ESB` | `LSC` | `OPC` | `OPER` | `QUES` | `MAV` | `RQS` | `RTG` | `STC` | `STS` | `SUM3` | `TDC` · †<br>This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_CC` · `"CC"` · †<br>Set_Trigger_Start_Link → CC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_CV` · `"CV"` · †<br>Set_Trigger_Start_Link → CV. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_ESB` · `"ESB"` · †<br>Set_Trigger_Start_Link → ESB. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_LSC` · `"LSC"` · †<br>Set_Trigger_Start_Link → LSC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_MAV` · `"MAV"` · †<br>Set_Trigger_Start_Link → MAV. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_OFF` · `"OFF"` · †<br>Set_Trigger_Start_Link → OFF. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_OPC` · `"OPC"` · †<br>Set_Trigger_Start_Link → OPC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_OPER` · `"OPER"` · †<br>Set_Trigger_Start_Link → OPER. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_QUES` · `"QUES"` · †<br>Set_Trigger_Start_Link → QUES. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_RQS` · `"RQS"` · †<br>Set_Trigger_Start_Link → RQS. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_RTG` · `"RTG"` · †<br>Set_Trigger_Start_Link → RTG. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_STC` · `"STC"` · †<br>Set_Trigger_Start_Link → STC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_STS` · `"STS"` · †<br>Set_Trigger_Start_Link → STS. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_SUM3` · `"SUM3"` · †<br>Set_Trigger_Start_Link → SUM3. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
+    - `LINK` — **SET** `Set_Trigger_Start_Link_TDC` · `"TDC"` · †<br>Set_Trigger_Start_Link → TDC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
 - **`TRIGger`**
   - **`STARt`**
     - `DELay` — **SET** `Set_Trigger_Start_Delay` · `<value>` · args: `value` · numeric (s) · †<br>This command sets the time delay between the detection of an event on the specified trigger source and the start of any corresponding trigger action on the power module’s output
     - `SOURce` — **SET** `Set_Trigger_Start_Source` · `<value>` · args: `value` · enum: `BUS` | `EXT` | `HOLD` | `LINK` | `TTLT` · †<br>This command selects the power module input trigger source as follows
+    - `SOURce` — **SET** `Set_Trigger_Start_Source_BUS` · `BUS` · †<br>Set_Trigger_Start_Source → BUS. This command selects the power module input trigger source as follows
+    - `SOURce` — **SET** `Set_Trigger_Start_Source_EXT` · `EXT` · †<br>Set_Trigger_Start_Source → EXT. This command selects the power module input trigger source as follows
+    - `SOURce` — **SET** `Set_Trigger_Start_Source_HOLD` · `HOLD` · †<br>Set_Trigger_Start_Source → HOLD. This command selects the power module input trigger source as follows
+    - `SOURce` — **SET** `Set_Trigger_Start_Source_LINK` · `LINK` · †<br>Set_Trigger_Start_Source → LINK. This command selects the power module input trigger source as follows
+    - `SOURce` — **SET** `Set_Trigger_Start_Source_TTLT` · `TTLT` · †<br>Set_Trigger_Start_Source → TTLT. This command selects the power module input trigger source as follows
     - `DELay?` — **NAB** `Get_Trigger_Start_Delay` · → NR3 s · †<br>This command sets the time delay between the detection of an event on the specified trigger source and the start of any corresponding trigger action on the power module’s output
     - `LINK?` — **NAB** `Get_Trigger_Start_Link` · → STR · †<br>This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command
     - `SOURce?` — **NAB** `Get_Trigger_Start_Source` · → CRD · †<br>This command selects the power module input trigger source as follows
@@ -269,6 +367,8 @@ Several statements in one message, so they hang off no single branch. Every stat
 - `*RST` — **DO** `Reset_Module` · †
 - `*ESE <value>` — **SET** `Set_Ese` · `<value>` · args: `value` · integer · †
 - `*PSC <value>` — **SET** `Set_Psc` · `<value>` · args: `value` · bool: `0` | `1` · †
+- `*PSC 0` — **SET** `Set_Psc_0` · `0` · †<br>Set_Psc → 0. Set psc
+- `*PSC 1` — **SET** `Set_Psc_1` · `1` · †<br>Set_Psc → 1. Set psc
 - `*RCL <value>` — **SET** `Set_Rcl` · `<value>` · args: `value` · integer · †
 - `*SAV <value>` — **SET** `Set_Sav` · `<value>` · args: `value` · integer · †
 - `*SRE <value>` — **SET** `Set_Sre` · `<value>` · args: `value` · integer · †

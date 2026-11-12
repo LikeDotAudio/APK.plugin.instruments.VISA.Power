@@ -73,9 +73,9 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 178,
+    "total_commands": 278,
     "get_count": 64,
-    "set_count": 49,
+    "set_count": 149,
     "nab_count": 66,
     "rig_count": 2,
     "do_count": 61
@@ -1807,6 +1807,52 @@
         },
         "unverified": true
       },
+      "Set_Psc_0": {
+        "command": "Set_Psc_0",
+        "verb": "set",
+        "description": "Set_Psc \u2192 0. Set psc",
+        "scpi": "*PSC 0",
+        "subsystem": "Common",
+        "group": "Common",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Psc_0",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Psc_0",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Psc_1": {
+        "command": "Set_Psc_1",
+        "verb": "set",
+        "description": "Set_Psc \u2192 1. Set psc",
+        "scpi": "*PSC 1",
+        "subsystem": "Common",
+        "group": "Common",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Psc_1",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Psc_1",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Psc": {
         "command": "Set_Psc",
         "verb": "set",
@@ -1942,6 +1988,52 @@
         },
         "unverified": true
       },
+      "Set_Calibrate_Status_OFF": {
+        "command": "Set_Calibrate_Status_OFF",
+        "verb": "set",
+        "description": "Set_Calibrate_Status \u2192 OFF. RST Value OFF",
+        "scpi": "CAL:STAT OFF",
+        "subsystem": "CAL",
+        "group": "CAL",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Calibrate_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Calibrate_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Calibrate_Status_ON": {
+        "command": "Set_Calibrate_Status_ON",
+        "verb": "set",
+        "description": "Set_Calibrate_Status \u2192 ON. RST Value OFF",
+        "scpi": "CAL:STAT ON",
+        "subsystem": "CAL",
+        "group": "CAL",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Calibrate_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Calibrate_Status_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Current": {
         "command": "Set_Current",
         "verb": "set",
@@ -2024,6 +2116,52 @@
         },
         "unverified": true
       },
+      "Set_Display_Window_Status_OFF": {
+        "command": "Set_Display_Window_Status_OFF",
+        "verb": "set",
+        "description": "Set_Display_Window_Status \u2192 OFF. This command turns the power module optional front panel voltage and current displays on and off",
+        "scpi": "DISP:WIND:STAT OFF",
+        "subsystem": "DISP",
+        "group": "DISP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Display_Window_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Display_Window_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Display_Window_Status_ON": {
+        "command": "Set_Display_Window_Status_ON",
+        "verb": "set",
+        "description": "Set_Display_Window_Status \u2192 ON. This command turns the power module optional front panel voltage and current displays on and off",
+        "scpi": "DISP:WIND:STAT ON",
+        "subsystem": "DISP",
+        "group": "DISP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Display_Window_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Display_Window_Status_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Initiate_Continuous": {
         "command": "Set_Initiate_Continuous",
         "verb": "set",
@@ -2047,6 +2185,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Initiate_Continuous",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Initiate_Continuous_OFF": {
+        "command": "Set_Initiate_Continuous_OFF",
+        "verb": "set",
+        "description": "Set_Initiate_Continuous \u2192 OFF. Set initiate continuous",
+        "scpi": "INIT:CONT OFF",
+        "subsystem": "INIT",
+        "group": "INIT",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Initiate_Continuous_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Initiate_Continuous_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Initiate_Continuous_ON": {
+        "command": "Set_Initiate_Continuous_ON",
+        "verb": "set",
+        "description": "Set_Initiate_Continuous \u2192 ON. Set initiate continuous",
+        "scpi": "INIT:CONT ON",
+        "subsystem": "INIT",
+        "group": "INIT",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Initiate_Continuous_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Initiate_Continuous_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2081,6 +2265,52 @@
           }
         },
         "unverified": false
+      },
+      "Set_Output_OFF": {
+        "command": "Set_Output_OFF",
+        "verb": "set",
+        "description": "Set_Output \u2192 OFF. Output on or off.",
+        "scpi": "OUTP OFF",
+        "subsystem": "OUTPut",
+        "group": "Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_ON": {
+        "command": "Set_Output_ON",
+        "verb": "set",
+        "description": "Set_Output \u2192 ON. Output on or off.",
+        "scpi": "OUTP ON",
+        "subsystem": "OUTPut",
+        "group": "Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
       },
       "Set_Output_Dfi_Link": {
         "command": "Set_Output_Dfi_Link",
@@ -2120,6 +2350,236 @@
         },
         "unverified": true
       },
+      "Set_Output_Dfi_Link_CC": {
+        "command": "Set_Output_Dfi_Link_CC",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 CC. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"CC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_CC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_CC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_CV": {
+        "command": "Set_Output_Dfi_Link_CV",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 CV. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"CV\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_CV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_CV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_ESB": {
+        "command": "Set_Output_Dfi_Link_ESB",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 ESB. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"ESB\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_ESB",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_ESB",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_MAV": {
+        "command": "Set_Output_Dfi_Link_MAV",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 MAV. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"MAV\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_MAV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_MAV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_OFF": {
+        "command": "Set_Output_Dfi_Link_OFF",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 OFF. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"OFF\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_OPC": {
+        "command": "Set_Output_Dfi_Link_OPC",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 OPC. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"OPC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_OPC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_OPC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_OPER": {
+        "command": "Set_Output_Dfi_Link_OPER",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 OPER. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"OPER\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_OPER",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_OPER",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_QUES": {
+        "command": "Set_Output_Dfi_Link_QUES",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 QUES. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"QUES\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_QUES",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_QUES",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_RQS": {
+        "command": "Set_Output_Dfi_Link_RQS",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 RQS. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"RQS\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_RQS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_RQS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Link_SUM3": {
+        "command": "Set_Output_Dfi_Link_SUM3",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Link \u2192 SUM3. This command specifies which events within the power module are linked to DFI source events",
+        "scpi": "OUTP:DFI:LINK \"SUM3\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Link_SUM3",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Link_SUM3",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Dfi_Source": {
         "command": "Set_Output_Dfi_Source",
         "verb": "set",
@@ -2149,6 +2609,29 @@
         },
         "unverified": true
       },
+      "Set_Output_Dfi_Source_LINK": {
+        "command": "Set_Output_Dfi_Source_LINK",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Source \u2192 LINK. This command selects the source for DFI events",
+        "scpi": "OUTP:DFI:SOUR LINK",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Source_LINK",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Source_LINK",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Dfi_Status": {
         "command": "Set_Output_Dfi_Status",
         "verb": "set",
@@ -2172,6 +2655,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Output_Dfi_Status",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Status_OFF": {
+        "command": "Set_Output_Dfi_Status_OFF",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Status \u2192 OFF. This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane",
+        "scpi": "OUTP:DFI:STAT OFF",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Dfi_Status_ON": {
+        "command": "Set_Output_Dfi_Status_ON",
+        "verb": "set",
+        "description": "Set_Output_Dfi_Status \u2192 ON. This command enables or disables the discrete fault indicator (DFI) signal to the power module backplane",
+        "scpi": "OUTP:DFI:STAT ON",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Dfi_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Dfi_Status_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2233,6 +2762,52 @@
         },
         "unverified": true
       },
+      "Set_Output_Relay_OFF": {
+        "command": "Set_Output_Relay_OFF",
+        "verb": "set",
+        "description": "Set_Output_Relay \u2192 OFF. Output Subsystem",
+        "scpi": "OUTP:REL OFF",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Relay_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Relay_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Relay_ON": {
+        "command": "Set_Output_Relay_ON",
+        "verb": "set",
+        "description": "Set_Output_Relay \u2192 ON. Output Subsystem",
+        "scpi": "OUTP:REL ON",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Relay_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Relay_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Relay_Polarity": {
         "command": "Set_Output_Relay_Polarity",
         "verb": "set",
@@ -2257,6 +2832,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Output_Relay_Polarity",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Relay_Polarity_NORM": {
+        "command": "Set_Output_Relay_Polarity_NORM",
+        "verb": "set",
+        "description": "Set_Output_Relay_Polarity \u2192 NORM. This command is valid only if the power module is configured for the optional relay connector",
+        "scpi": "OUTP:REL:POL NORM",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Relay_Polarity_NORM",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Relay_Polarity_NORM",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Relay_Polarity_REV": {
+        "command": "Set_Output_Relay_Polarity_REV",
+        "verb": "set",
+        "description": "Set_Output_Relay_Polarity \u2192 REV. This command is valid only if the power module is configured for the optional relay connector",
+        "scpi": "OUTP:REL:POL REV",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Relay_Polarity_REV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Relay_Polarity_REV",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2292,6 +2913,52 @@
         },
         "unverified": true
       },
+      "Set_Output_Relay_Status_OFF": {
+        "command": "Set_Output_Relay_Status_OFF",
+        "verb": "set",
+        "description": "Set_Output_Relay_Status \u2192 OFF. This command is valid only if the power module is configured for the optional relay connector",
+        "scpi": "OUTP:REL:STAT OFF",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Relay_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Relay_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Relay_Status_ON": {
+        "command": "Set_Output_Relay_Status_ON",
+        "verb": "set",
+        "description": "Set_Output_Relay_Status \u2192 ON. This command is valid only if the power module is configured for the optional relay connector",
+        "scpi": "OUTP:REL:STAT ON",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Relay_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Relay_Status_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Status": {
         "command": "Set_Output_Status",
         "verb": "set",
@@ -2315,6 +2982,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Output_Status",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Status_OFF": {
+        "command": "Set_Output_Status_OFF",
+        "verb": "set",
+        "description": "Set_Output_Status \u2192 OFF. If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled",
+        "scpi": "OUTP:STAT OFF",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Status_ON": {
+        "command": "Set_Output_Status_ON",
+        "verb": "set",
+        "description": "Set_Output_Status \u2192 ON. If the power module is configured to use the relay option, the command opens the relay contacts when the output is disabled and closes them when it is enabled",
+        "scpi": "OUTP:STAT ON",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Status_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2364,6 +3077,351 @@
         },
         "unverified": true
       },
+      "Set_Output_Ttltrg_Link_CC": {
+        "command": "Set_Output_Ttltrg_Link_CC",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 CC. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"CC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_CC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_CC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_CV": {
+        "command": "Set_Output_Ttltrg_Link_CV",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 CV. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"CV\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_CV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_CV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_ESB": {
+        "command": "Set_Output_Ttltrg_Link_ESB",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 ESB. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"ESB\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_ESB",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_ESB",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_LSC": {
+        "command": "Set_Output_Ttltrg_Link_LSC",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 LSC. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"LSC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_LSC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_LSC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_MAV": {
+        "command": "Set_Output_Ttltrg_Link_MAV",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 MAV. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"MAV\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_MAV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_MAV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_OFF": {
+        "command": "Set_Output_Ttltrg_Link_OFF",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 OFF. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"OFF\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_OPC": {
+        "command": "Set_Output_Ttltrg_Link_OPC",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 OPC. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"OPC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_OPC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_OPC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_OPER": {
+        "command": "Set_Output_Ttltrg_Link_OPER",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 OPER. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"OPER\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_OPER",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_OPER",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_QUES": {
+        "command": "Set_Output_Ttltrg_Link_QUES",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 QUES. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"QUES\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_QUES",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_QUES",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_RQS": {
+        "command": "Set_Output_Ttltrg_Link_RQS",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 RQS. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"RQS\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_RQS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_RQS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_RTG": {
+        "command": "Set_Output_Ttltrg_Link_RTG",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 RTG. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"RTG\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_RTG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_RTG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_STC": {
+        "command": "Set_Output_Ttltrg_Link_STC",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 STC. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"STC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_STC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_STC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_STS": {
+        "command": "Set_Output_Ttltrg_Link_STS",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 STS. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"STS\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_STS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_STS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_SUM3": {
+        "command": "Set_Output_Ttltrg_Link_SUM3",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 SUM3. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"SUM3\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_SUM3",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_SUM3",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Link_TDC": {
+        "command": "Set_Output_Ttltrg_Link_TDC",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Link \u2192 TDC. Set output ttltrg link",
+        "scpi": "OUTP:TTLT:LINK \"TDC\"",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Link_TDC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Link_TDC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Ttltrg_Source": {
         "command": "Set_Output_Ttltrg_Source",
         "verb": "set",
@@ -2396,6 +3454,98 @@
         },
         "unverified": true
       },
+      "Set_Output_Ttltrg_Source_BUS": {
+        "command": "Set_Output_Ttltrg_Source_BUS",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Source \u2192 BUS. Set output ttltrg source",
+        "scpi": "OUTP:TTLT:SOUR BUS",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Source_BUS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Source_BUS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Source_EXT": {
+        "command": "Set_Output_Ttltrg_Source_EXT",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Source \u2192 EXT. Set output ttltrg source",
+        "scpi": "OUTP:TTLT:SOUR EXT",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Source_HOLD": {
+        "command": "Set_Output_Ttltrg_Source_HOLD",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Source \u2192 HOLD. Set output ttltrg source",
+        "scpi": "OUTP:TTLT:SOUR HOLD",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Source_HOLD",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Source_HOLD",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Source_LINK": {
+        "command": "Set_Output_Ttltrg_Source_LINK",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Source \u2192 LINK. Set output ttltrg source",
+        "scpi": "OUTP:TTLT:SOUR LINK",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Source_LINK",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Source_LINK",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Ttltrg_Status": {
         "command": "Set_Output_Ttltrg_Status",
         "verb": "set",
@@ -2419,6 +3569,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Output_Ttltrg_Status",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Status_OFF": {
+        "command": "Set_Output_Ttltrg_Status_OFF",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Status \u2192 OFF. This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe",
+        "scpi": "OUTP:TTLT:STAT OFF",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Ttltrg_Status_ON": {
+        "command": "Set_Output_Ttltrg_Status_ON",
+        "verb": "set",
+        "description": "Set_Output_Ttltrg_Status \u2192 ON. This command enables or disables the power module Trigger Out signal, which is available at a BNC connector on the rear of the mainframe",
+        "scpi": "OUTP:TTLT:STAT ON",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Output_Ttltrg_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Ttltrg_Status_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2503,6 +3699,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Source_List_Step",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_List_Step_AUTO": {
+        "command": "Set_Source_List_Step_AUTO",
+        "verb": "set",
+        "description": "Set_Source_List_Step \u2192 AUTO. In either mode, triggers that occur during a dwell interval are ignored",
+        "scpi": "SOUR:LIST:STEP AUTO",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_List_Step_AUTO",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_List_Step_AUTO",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_List_Step_ONCE": {
+        "command": "Set_Source_List_Step_ONCE",
+        "verb": "set",
+        "description": "Set_Source_List_Step \u2192 ONCE. In either mode, triggers that occur during a dwell interval are ignored",
+        "scpi": "SOUR:LIST:STEP ONCE",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_List_Step_ONCE",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_List_Step_ONCE",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2594,6 +3836,54 @@
         },
         "unverified": true
       },
+      "Set_Source_Current_Mode_FIX": {
+        "command": "Set_Source_Current_Mode_FIX",
+        "verb": "set",
+        "description": "Set_Source_Current_Mode \u2192 FIX. LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list",
+        "scpi": "SOURce:CURRent:MODE FIX",
+        "scpi_fast": "SOUR:CURR:MODE FIX",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_Current_Mode_FIX",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_Current_Mode_FIX",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_Current_Mode_LIST": {
+        "command": "Set_Source_Current_Mode_LIST",
+        "verb": "set",
+        "description": "Set_Source_Current_Mode \u2192 LIST. LIST:CURR . If the LIST parameter is used, then the output current may be changed by the subsequent execution of a list",
+        "scpi": "SOURce:CURRent:MODE LIST",
+        "scpi_fast": "SOUR:CURR:MODE LIST",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_Current_Mode_LIST",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_Current_Mode_LIST",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Source_Current_Protection_Status": {
         "command": "Set_Source_Current_Protection_Status",
         "verb": "set",
@@ -2618,6 +3908,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Source_Current_Protection_Status",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_Current_Protection_Status_OFF": {
+        "command": "Set_Source_Current_Protection_Status_OFF",
+        "verb": "set",
+        "description": "Set_Source_Current_Protection_Status \u2192 OFF. This command enables or disables the power module overcurrent (OC) protection function",
+        "scpi": "SOURce:CURRent:PROTection:STATe OFF",
+        "scpi_fast": "SOUR:CURR:PROT:STAT OFF",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_Current_Protection_Status_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_Current_Protection_Status_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_Current_Protection_Status_ON": {
+        "command": "Set_Source_Current_Protection_Status_ON",
+        "verb": "set",
+        "description": "Set_Source_Current_Protection_Status \u2192 ON. This command enables or disables the power module overcurrent (OC) protection function",
+        "scpi": "SOURce:CURRent:PROTection:STATe ON",
+        "scpi_fast": "SOUR:CURR:PROT:STAT ON",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_Current_Protection_Status_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_Current_Protection_Status_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2701,6 +4039,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Source_Voltage_Mode",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_Voltage_Mode_FIX": {
+        "command": "Set_Source_Voltage_Mode_FIX",
+        "verb": "set",
+        "description": "Set_Source_Voltage_Mode \u2192 FIX. LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list",
+        "scpi": "SOURce:VOLTage:MODE FIX",
+        "scpi_fast": "SOUR:VOLT:MODE FIX",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_Voltage_Mode_FIX",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_Voltage_Mode_FIX",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Source_Voltage_Mode_LIST": {
+        "command": "Set_Source_Voltage_Mode_LIST",
+        "verb": "set",
+        "description": "Set_Source_Voltage_Mode \u2192 LIST. LIST:VOLT . If the LIST parameter is used, then the output voltage may be changed by the subsequent execution of a list",
+        "scpi": "SOURce:VOLTage:MODE LIST",
+        "scpi_fast": "SOUR:VOLT:MODE LIST",
+        "subsystem": "SOUR",
+        "group": "SOUR",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Source_Voltage_Mode_LIST",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Source_Voltage_Mode_LIST",
             "value": "<value>",
             "input_name": "value"
           }
@@ -2976,6 +4362,351 @@
         },
         "unverified": true
       },
+      "Set_Trigger_Link_CC": {
+        "command": "Set_Trigger_Link_CC",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 CC. Set trigger link",
+        "scpi": "TRIG:LINK \"CC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_CC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_CC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_CV": {
+        "command": "Set_Trigger_Link_CV",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 CV. Set trigger link",
+        "scpi": "TRIG:LINK \"CV\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_CV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_CV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_ESB": {
+        "command": "Set_Trigger_Link_ESB",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 ESB. Set trigger link",
+        "scpi": "TRIG:LINK \"ESB\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_ESB",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_ESB",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_LSC": {
+        "command": "Set_Trigger_Link_LSC",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 LSC. Set trigger link",
+        "scpi": "TRIG:LINK \"LSC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_LSC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_LSC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_MAV": {
+        "command": "Set_Trigger_Link_MAV",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 MAV. Set trigger link",
+        "scpi": "TRIG:LINK \"MAV\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_MAV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_MAV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_OFF": {
+        "command": "Set_Trigger_Link_OFF",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 OFF. Set trigger link",
+        "scpi": "TRIG:LINK \"OFF\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_OPC": {
+        "command": "Set_Trigger_Link_OPC",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 OPC. Set trigger link",
+        "scpi": "TRIG:LINK \"OPC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_OPC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_OPC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_OPER": {
+        "command": "Set_Trigger_Link_OPER",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 OPER. Set trigger link",
+        "scpi": "TRIG:LINK \"OPER\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_OPER",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_OPER",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_QUES": {
+        "command": "Set_Trigger_Link_QUES",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 QUES. Set trigger link",
+        "scpi": "TRIG:LINK \"QUES\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_QUES",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_QUES",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_RQS": {
+        "command": "Set_Trigger_Link_RQS",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 RQS. Set trigger link",
+        "scpi": "TRIG:LINK \"RQS\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_RQS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_RQS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_RTG": {
+        "command": "Set_Trigger_Link_RTG",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 RTG. Set trigger link",
+        "scpi": "TRIG:LINK \"RTG\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_RTG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_RTG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_STC": {
+        "command": "Set_Trigger_Link_STC",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 STC. Set trigger link",
+        "scpi": "TRIG:LINK \"STC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_STC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_STC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_STS": {
+        "command": "Set_Trigger_Link_STS",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 STS. Set trigger link",
+        "scpi": "TRIG:LINK \"STS\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_STS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_STS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_SUM3": {
+        "command": "Set_Trigger_Link_SUM3",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 SUM3. Set trigger link",
+        "scpi": "TRIG:LINK \"SUM3\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_SUM3",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_SUM3",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Link_TDC": {
+        "command": "Set_Trigger_Link_TDC",
+        "verb": "set",
+        "description": "Set_Trigger_Link \u2192 TDC. Set trigger link",
+        "scpi": "TRIG:LINK \"TDC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Link_TDC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Link_TDC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Trigger_Source": {
         "command": "Set_Trigger_Source",
         "verb": "set",
@@ -3003,6 +4734,121 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Trigger_Source",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_BUS": {
+        "command": "Set_Trigger_Source_BUS",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 BUS. Set trigger source",
+        "scpi": "TRIG:SOUR BUS",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Source_BUS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_BUS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_EXT": {
+        "command": "Set_Trigger_Source_EXT",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 EXT. Set trigger source",
+        "scpi": "TRIG:SOUR EXT",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_HOLD": {
+        "command": "Set_Trigger_Source_HOLD",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 HOLD. Set trigger source",
+        "scpi": "TRIG:SOUR HOLD",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Source_HOLD",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_HOLD",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_LINK": {
+        "command": "Set_Trigger_Source_LINK",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 LINK. Set trigger source",
+        "scpi": "TRIG:SOUR LINK",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Source_LINK",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_LINK",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_TTLT": {
+        "command": "Set_Trigger_Source_TTLT",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 TTLT. Set trigger source",
+        "scpi": "TRIG:SOUR TTLT",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Source_TTLT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_TTLT",
             "value": "<value>",
             "input_name": "value"
           }
@@ -3046,6 +4892,351 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Trigger_Start_Link",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_CC": {
+        "command": "Set_Trigger_Start_Link_CC",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 CC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"CC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_CC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_CC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_CV": {
+        "command": "Set_Trigger_Start_Link_CV",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 CV. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"CV\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_CV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_CV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_ESB": {
+        "command": "Set_Trigger_Start_Link_ESB",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 ESB. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"ESB\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_ESB",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_ESB",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_LSC": {
+        "command": "Set_Trigger_Start_Link_LSC",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 LSC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"LSC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_LSC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_LSC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_MAV": {
+        "command": "Set_Trigger_Start_Link_MAV",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 MAV. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"MAV\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_MAV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_MAV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_OFF": {
+        "command": "Set_Trigger_Start_Link_OFF",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 OFF. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"OFF\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_OPC": {
+        "command": "Set_Trigger_Start_Link_OPC",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 OPC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"OPC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_OPC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_OPC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_OPER": {
+        "command": "Set_Trigger_Start_Link_OPER",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 OPER. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"OPER\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_OPER",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_OPER",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_QUES": {
+        "command": "Set_Trigger_Start_Link_QUES",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 QUES. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"QUES\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_QUES",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_QUES",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_RQS": {
+        "command": "Set_Trigger_Start_Link_RQS",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 RQS. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"RQS\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_RQS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_RQS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_RTG": {
+        "command": "Set_Trigger_Start_Link_RTG",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 RTG. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"RTG\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_RTG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_RTG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_STC": {
+        "command": "Set_Trigger_Start_Link_STC",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 STC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"STC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_STC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_STC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_STS": {
+        "command": "Set_Trigger_Start_Link_STS",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 STS. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"STS\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_STS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_STS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_SUM3": {
+        "command": "Set_Trigger_Start_Link_SUM3",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 SUM3. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"SUM3\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_SUM3",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_SUM3",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Link_TDC": {
+        "command": "Set_Trigger_Start_Link_TDC",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Link \u2192 TDC. This command specifies which event conditions within the power module are linked to trigger source events when LINK is the parameter of the TRIG:SOUR command",
+        "scpi": "TRIG:STAR:LINK \"TDC\"",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Link_TDC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Link_TDC",
             "value": "<value>",
             "input_name": "value"
           }
@@ -3107,6 +5298,126 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Trigger_Start_Source",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Source_BUS": {
+        "command": "Set_Trigger_Start_Source_BUS",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Source \u2192 BUS. This command selects the power module input trigger source as follows",
+        "scpi": "TRIGger:STARt:SOURce BUS",
+        "scpi_fast": "TRIG:STAR:SOUR BUS",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Source_BUS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Source_BUS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Source_EXT": {
+        "command": "Set_Trigger_Start_Source_EXT",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Source \u2192 EXT. This command selects the power module input trigger source as follows",
+        "scpi": "TRIGger:STARt:SOURce EXT",
+        "scpi_fast": "TRIG:STAR:SOUR EXT",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Source_HOLD": {
+        "command": "Set_Trigger_Start_Source_HOLD",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Source \u2192 HOLD. This command selects the power module input trigger source as follows",
+        "scpi": "TRIGger:STARt:SOURce HOLD",
+        "scpi_fast": "TRIG:STAR:SOUR HOLD",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Source_HOLD",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Source_HOLD",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Source_LINK": {
+        "command": "Set_Trigger_Start_Source_LINK",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Source \u2192 LINK. This command selects the power module input trigger source as follows",
+        "scpi": "TRIGger:STARt:SOURce LINK",
+        "scpi_fast": "TRIG:STAR:SOUR LINK",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Source_LINK",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Source_LINK",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Start_Source_TTLT": {
+        "command": "Set_Trigger_Start_Source_TTLT",
+        "verb": "set",
+        "description": "Set_Trigger_Start_Source \u2192 TTLT. This command selects the power module input trigger source as follows",
+        "scpi": "TRIGger:STARt:SOURce TTLT",
+        "scpi_fast": "TRIG:STAR:SOUR TTLT",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Power/Set_Trigger_Start_Source_TTLT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Start_Source_TTLT",
             "value": "<value>",
             "input_name": "value"
           }
